@@ -1,0 +1,810 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Handle_Exception_Mbot" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="RI" Type="InArgument(x:String)" />
+    <x:Property Name="DocumentoId" Type="InArgument(x:String)" />
+    <x:Property Name="ProcessoExportacaoId" Type="InArgument(x:String)" />
+    <x:Property Name="PastaOrigem" Type="InArgument(x:String)" />
+    <x:Property Name="mensagem" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1323,4874</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Handle_Exception_Mbot_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="42">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Java</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Java</AssemblyReference>
+      <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Handles an exception, that is closes the forms and proceeds to the next transaction." DisplayName="Handle_Exception_Mbot" sap:VirtualizedContainerService.HintSize="1303,4814" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="formsFechados" />
+      <Variable x:TypeArguments="x:String" Name="screenshotFolder" />
+      <Variable x:TypeArguments="x:Int32" Name="counterTentativas" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="1261,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[screenshotFolder]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Config("ScreenshotsFolder"+"_"+Config("Mode").ToString).ToString + ProcessoExportacaoId + "_" + RI]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1261,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[counterTentativas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="1261,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="PastaOrigem">[PastaOrigem]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="DocumentoId">[DocumentoId]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="RI">[RI]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Mensagem">[mensagem]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1261,4368" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+      <TryCatch.Try>
+        <While DisplayName="While index is lesser than NumberOfForms opened" sap:VirtualizedContainerService.HintSize="1223,4141" sap2010:WorkflowViewState.IdRef="While_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <While.Condition>
+            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not formsFechados" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+          </While.Condition>
+          <Sequence DisplayName="Tratamento para fechar as telas" sap:VirtualizedContainerService.HintSize="1177,3983" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="desejaSairForm" />
+              <Variable x:TypeArguments="x:Boolean" Name="desejaSairDoOracle" />
+              <Variable x:TypeArguments="x:Boolean" Name="desejaSalvar" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap2010:Annotation.AnnotationText="Se passar da quantidade maxima de tentativas de fechar os forms fecha o Oracle.&#xA;" DisplayName="Quantidade maxima de tentativas" sap:VirtualizedContainerService.HintSize="1135,3088" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[counterTentativas&gt;15]" sap:VirtualizedContainerService.HintSize="1093,2954" sap2010:WorkflowViewState.IdRef="If_12">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="480,598" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,406" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch.Try>
+                        <Sequence DisplayName="End of process activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,312" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Applications failed to close normally. &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[formsFechados]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="568,2806" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Nota conjugada" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="notaConjugada" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="484,280" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[CInt(Config(&quot;MaxNumberOfRetries&quot;).ToString)]">
+                        <ui:RetryScope.ActivityBody>
+                          <ActivityAction>
+                            <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[notaConjugada]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+                              <ui:UiElementExists.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b514644a-42b9-444f-8c4e-b178a5ae5028" InformativeScreenshot="4db98893e3889b7b880adf0abdc93cf7" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java omit:name='Entrada da NF (U01-U0001 - UNIDOCKS - TAMBORE - T) - 18533' role='internal frame' idx='11' /&gt;&lt;java name='Decisão*' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:UiElementExists.Target>
+                            </ui:UiElementExists>
+                          </ActivityAction>
+                        </ui:RetryScope.ActivityBody>
+                        <ui:RetryScope.Condition>
+                          <ActivityFunc x:TypeArguments="x:Boolean" />
+                        </ui:RetryScope.Condition>
+                      </ui:RetryScope>
+                      <If Condition="[notaConjugada]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_7">
+                        <If.Then>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Não ALT N'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba80c561-fd62-48e1-b619-99d56e94d0d0" InformativeScreenshot="ca4db42e92413bcf234ea4dd2fea0894" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java omit:name='Entrada da NF (U01-U0001 - UNIDOCKS - TAMBORE - T) - 18533' role='internal frame' idx='11' /&gt;&lt;java name='Decisão*' role='internal frame' /&gt;&lt;java name='Não ALT N' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </If.Then>
+                      </If>
+                      <ui:Comment sap:VirtualizedContainerService.HintSize="484,55" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// Fim do tratamento de nota conjugada" />
+                    </Sequence>
+                    <Sequence DisplayName="Print" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="notaConjugada" />
+                        <Variable x:TypeArguments="x:Boolean" Name="print" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="484,280" sap2010:WorkflowViewState.IdRef="RetryScope_4" NumberOfRetries="[CInt(Config(&quot;MaxNumberOfRetries&quot;).ToString)]">
+                        <ui:RetryScope.ActivityBody>
+                          <ActivityAction>
+                            <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[print]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_11">
+                              <ui:UiElementExists.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b19593c9-7f70-49db-815b-0ec9e07df383" InformativeScreenshot="850c70899bfd3655fe5ade44837e3968" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Print' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:UiElementExists.Target>
+                            </ui:UiElementExists>
+                          </ActivityAction>
+                        </ui:RetryScope.ActivityBody>
+                        <ui:RetryScope.Condition>
+                          <ActivityFunc x:TypeArguments="x:Boolean" />
+                        </ui:RetryScope.Condition>
+                      </ui:RetryScope>
+                      <If Condition="[print]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_11">
+                        <If.Then>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Não ALT N'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b998e17-21ce-4707-87a0-278299bd111d" InformativeScreenshot="2e05e6373ece4db66e604805fee258fd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Print' /&gt;&lt;java name='Cancel' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </If.Then>
+                      </If>
+                      <ui:Comment sap:VirtualizedContainerService.HintSize="484,55" sap2010:WorkflowViewState.IdRef="Comment_5" Text="// Fim do tratamento da tela de print" />
+                    </Sequence>
+                    <Sequence DisplayName="Precaução" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="popupPrecaucaoAberto" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:UiElementExists DisplayName="Element Exists 'Precaução'" Exists="[popupPrecaucaoAberto]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="401888db-bb14-4efe-8051-4e2d100aba5e" InformativeScreenshot="9091aeeb5dea6807074c7df76eb094e3" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='' /&gt;&lt;java omit:name='' role='internal frame' /&gt;&lt;java name='Precaução*' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[popupPrecaucaoAberto]" DisplayName="If popupPrecaucaoAberto" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_8">
+                        <If.Then>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="476ff503-ff8f-4c9b-ac7a-1ce56ef4d668" InformativeScreenshot="05b9c57dc3d6d80b1a4392e1de2427fe" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='{{ApplicationName}}' /&gt;&lt;java name='Entrada da NF ({{BranchNumber}}*' role='internal frame' /&gt;&lt;java name='Precaução*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                    <Sequence DisplayName="Erro" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="popupErroAberto" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:UiElementExists DisplayName="Element Exists Erro" Exists="[popupErroAberto]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08e730c1-d9df-4e83-ab7a-ee3ab6f0f080" InformativeScreenshot="94a915bdbd780de59f0c4912f4c09889" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Erro *' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[popupErroAberto]" DisplayName="If popupErroAberto" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_9">
+                        <If.Then>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3faa9374-48d6-407f-b416-2f1f90ea5ea4" InformativeScreenshot="549cc52333a977c57f9359da8fe26bbf" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Erro *' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                    <Sequence DisplayName="Observação" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="popupObservacaoAberto" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:UiElementExists DisplayName="Element Exists Observacao" Exists="[popupObservacaoAberto]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b1204145-d311-4c16-8e25-84efc110c1c3" InformativeScreenshot="94a915bdbd780de59f0c4912f4c09889" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Obs*' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[popupObservacaoAberto]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_10">
+                        <If.Then>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="46156196-b34b-488e-ab6d-1677bab441ba" InformativeScreenshot="7e260b4020dc5c4e10f01340a749c0a3" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Obs*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                    <Sequence DisplayName="tratar pesquisa" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="c" KeyModifiers="Alt">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2c47a3af-9de6-489b-a984-62672873848b" InformativeScreenshot="1056670b7cab52b962eff96daa706fb1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java idx='1' role='panel' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                    </Sequence>
+                    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="526,280" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[CInt(Config(&quot;MaxNumberOfRetries&quot;).ToString)]">
+                      <ui:RetryScope.ActivityBody>
+                        <ActivityAction>
+                          <ui:UiElementExists DisplayName="Element Exists Deseja sair form" Exists="[desejaSairForm]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f27e0541-133e-4144-bbc2-84c10a843113" InformativeScreenshot="961afb92f9e561f43a202246ade8fde5" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java role='*frame' /&gt;&lt;java name='Forms Você deseja sair?' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </ActivityAction>
+                      </ui:RetryScope.ActivityBody>
+                      <ui:RetryScope.Condition>
+                        <ActivityFunc x:TypeArguments="x:Boolean" />
+                      </ui:RetryScope.Condition>
+                    </ui:RetryScope>
+                    <If Condition="[desejaSairForm]" DisplayName="If deseja sair" sap:VirtualizedContainerService.HintSize="526,254" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Sim ALT S'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab5246c5-012b-4b7d-9839-000517066e57" InformativeScreenshot="4f0b9c456a723ef4da97fc5adf0720cf" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Forms Você deseja sair?' role='internal frame' /&gt;&lt;java name='Você deseja sair?' role='option pane' /&gt;&lt;java name='Sim ALT S' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </If.Then>
+                    </If>
+                    <ui:UiElementExists DisplayName="Element Exists Deseja Salvar" Exists="[desejaSalvar]" sap:VirtualizedContainerService.HintSize="526,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef6a27fb-51a1-4a8e-897d-e94b11bab6e5" InformativeScreenshot="47a437bf5c1f0054515c9594bb389ab3" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java role='*frame' idx='?' /&gt;&lt;java name='Forms Você deseja salvar as alterações efetuadas?' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[desejaSalvar]" sap:VirtualizedContainerService.HintSize="526,492" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Não" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ee4d9acd-c825-47e4-b91e-c9442633d36b" InformativeScreenshot="fed98245bd078c61b254f36fb0ea867b" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Forms Você deseja salvar as alterações efetuadas?' role='internal frame' /&gt;&lt;java name='Você deseja salvar as alterações efetuadas?' role='option pane' /&gt;&lt;java name='Não ALT N' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a9fa62fa-9de4-4b9f-b387-41a3110aaad7" InformativeScreenshot="2b6ba1ebea81caf666e63a4349ec8c9e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java name='Forms FRM-40400*' role='internal frame' /&gt;&lt;java name='FRM-40400*' role='option pane' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </Sequence>
+                      </If.Then>
+                    </If>
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'f4' (close form)" sap:VirtualizedContainerService.HintSize="526,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f4" KeyModifiers="None" SpecialKey="True">
+                      <ui:SendHotkey.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2dd57be2-3931-46fc-839f-d6c37dc37cb7" InformativeScreenshot="6e4ec518363fc5b39225c33fef627431" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java idx='1' role='panel' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SendHotkey.Target>
+                    </ui:SendHotkey>
+                    <ui:UiElementExists DisplayName="Element Exists Sair dos aplicativos oracle" Exists="[desejaSairDoOracle]" sap:VirtualizedContainerService.HintSize="526,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c319256a-2a97-474d-a33e-dcb651f90c0e" InformativeScreenshot="341b30fe87c85e50c1ae087c62266ccd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Navegador - *' role='internal frame' /&gt;&lt;java name='Precaução Sair dos Aplicativos Oracle?' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[desejaSairDoOracle]" DisplayName="Mensagem de sair do oracle" sap:VirtualizedContainerService.HintSize="526,446" sap2010:WorkflowViewState.IdRef="If_5">
+                      <If.Then>
+                        <Sequence DisplayName="Cancelar e sair do loop" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Cancelar " sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aef491a0-b879-4030-ba16-dff4d2b64a6e" InformativeScreenshot="04eec74000ba021c7c7bebaeab6b52f2" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Navegador - *' role='internal frame' /&gt;&lt;java name='Precaução Sair dos Aplicativos Oracle?' role='internal frame' /&gt;&lt;java name='Cancelar ALT C' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[formsFechados]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                    </If>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Limpar formulario" sap:VirtualizedContainerService.HintSize="1135,663" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,571" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Limpar form e salvar" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Limpar form" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e0b0cc14-0c25-45ed-bd27-d335be475339" InformativeScreenshot="5d672e02addd126731af178d705c23ed" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java idx='38' role='push button' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click salvar" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4fbf11e7-4290-47a4-8498-2c073d0d9c6a" InformativeScreenshot="5052f0d1315b7bb7303270feebaa7bb6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java idx='26' role='push button' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Erro ao limpar form do oracle&quot;]" />
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </Sequence>
+            <Assign sap:VirtualizedContainerService.HintSize="1135,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[counterTentativas]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[counterTentativas+1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </While>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1227,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,406" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch.Try>
+                <Sequence DisplayName="End of process activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Applications failed to close normally. &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

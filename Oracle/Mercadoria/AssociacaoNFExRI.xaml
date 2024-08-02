@@ -1,0 +1,1038 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AssociacaoNFExRI" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="CodigoSOP" Type="InArgument(x:String)" />
+    <x:Property Name="CNPJFornecedor" Type="InOutArgument(x:String)" />
+    <x:Property Name="CodigoFilialPedido" Type="InArgument(x:String)" />
+    <x:Property Name="CondicaoDePagamento" Type="InArgument(x:String)" />
+    <x:Property Name="NFEE_ChaveNota" Type="OutArgument(x:String)" />
+    <x:Property Name="NFEE_ValorTotal" Type="OutArgument(x:String)" />
+    <x:Property Name="NFEE_Tipo" Type="OutArgument(x:String)" />
+    <x:Property Name="CodigoFilialOracle" Type="InArgument(x:String)" />
+    <x:Property Name="ProcessoExportacaoId" Type="InArgument(x:String)" />
+    <x:Property Name="DocumentoId" Type="InArgument(x:String)" />
+    <x:Property Name="PastaOrigem" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1166,5336</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AssociacaoNFExRI_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AssociacaoNFExRI" sap:VirtualizedContainerService.HintSize="1146,5276" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Preenche o Tipo da NF com %SOP e escolhe a primeira opção&#xA;" DisplayName="Tipo NF" sap:VirtualizedContainerService.HintSize="1104,3836.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="telaErroTipoNF" />
+        <Variable x:TypeArguments="x:Boolean" Name="TelaEscolhaTipo" />
+        <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="linhas" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[CodigoSOP.ToUpper.Contains(&quot;E.69 - SEM PO&quot;)]" sap:VirtualizedContainerService.HintSize="1062,216" sap2010:WorkflowViewState.IdRef="If_21">
+        <If.Then>
+          <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[CodigoSOP]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">E.69 -SEM PO</InArgument>
+            </Assign.Value>
+          </Assign>
+        </If.Then>
+      </If>
+      <If Condition="[CodigoSOP.ToUpper.Contains(&quot;E.&quot;)]" sap:VirtualizedContainerService.HintSize="1062,282" sap2010:WorkflowViewState.IdRef="If_10">
+        <If.Then>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Tipo'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[CodigoSOP+&quot;[k(tab)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b08df75-11af-4d3e-ba58-21d0329e69fa" InformativeScreenshot="ee71886c01566aa447ca510c43ae6dae" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo NF*' role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </If.Then>
+        <If.Else>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Tipo'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;E.&quot;+CodigoSOP+&quot;[k(tab)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05fc3392-882b-45f4-94d8-23f08a361c05" InformativeScreenshot="ee71886c01566aa447ca510c43ae6dae" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo NF*' role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </If.Else>
+      </If>
+      <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[telaErroTipoNF]" sap:VirtualizedContainerService.HintSize="1062,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="95779d28-466c-448d-8c34-bc02ce842849" InformativeScreenshot="c1972edb5d11a728c9d0d156eb5032c7" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Forms Não foi possível reservar registro (* tentativas).  Continuar tentando?' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[telaErroTipoNF]" sap:VirtualizedContainerService.HintSize="1062,254" sap2010:WorkflowViewState.IdRef="If_9">
+        <If.Then>
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Não ALT N'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="865159cf-b053-4c8d-b2c4-e1ebef69a920" InformativeScreenshot="af36cf216170c90f7aeea33d8f95f437" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Forms Não foi possível reservar registro (* tentativas).  Continuar tentando?' role='internal frame' /&gt;&lt;java name='Não foi possível reservar registro (* tentativas).  Continuar tentando?' role='option pane' /&gt;&lt;java name='Não ALT N' role='push button' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+        </If.Then>
+      </If>
+      <Sequence sap2010:Annotation.AnnotationText="Caso apareca a tela de escolha do tipo da NF escolhe a primeira linha que contenha o cod da SOP. Se não encontrar reporta erro.&#xA;" DisplayName="Tratamento tela escolha" sap:VirtualizedContainerService.HintSize="1062,2500" sap2010:WorkflowViewState.IdRef="Sequence_24">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If Condition="[Config(&quot;Mode&quot;).ToString=&quot;PROD&quot;]" sap:VirtualizedContainerService.HintSize="1020,254" sap2010:WorkflowViewState.IdRef="If_16">
+          <If.Then>
+            <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7cfb30c7-00b2-401f-a839-0bbecccdd9f3" InformativeScreenshot="bd9cc5f4ffe49c0bb84b35c6088f509f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+          </If.Then>
+          <If.Else>
+            <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e1796d67-9304-4d2e-9f5e-307a625ad82c" InformativeScreenshot="bd9cc5f4ffe49c0bb84b35c6088f509f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+          </If.Else>
+        </If>
+        <If Condition="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="1020,2072" sap2010:WorkflowViewState.IdRef="If_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="875,1924" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:FindChildren Children="[linhas]" DisplayName="Find Children 'list'" Filter="&lt;java /&gt;" sap:VirtualizedContainerService.HintSize="833,106" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_CHILDREN">
+                <ui:FindChildren.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b212ff8e-04c5-49ec-b05a-c274251623e5" InformativeScreenshot="1ef5fc3c68202123f59685c79a18f940" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;&lt;java role='list' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:FindChildren.Target>
+              </ui:FindChildren>
+              <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="833,770" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[linhas]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="ui:UiElement">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:UiElement" Name="item" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,636" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="ui:GenericValue" Name="LinhaTipoNF" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="name" DisplayName="Get Attribute" sap:VirtualizedContainerService.HintSize="755,96" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                        <ui:GetAttribute.Result>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[LinhaTipoNF]</OutArgument>
+                        </ui:GetAttribute.Result>
+                        <ui:GetAttribute.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[item]" Id="8f0925cb-83a6-474f-a315-f0c3be6da85f">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:GetAttribute.Target>
+                      </ui:GetAttribute>
+                      <If Condition="[LinhaTipoNF.ToUpper.Replace(&quot; &quot;,&quot;&quot;).Contains(CodigoSOP.Replace(&quot; &quot;,&quot;&quot;))]" sap:VirtualizedContainerService.HintSize="755,408" sap2010:WorkflowViewState.IdRef="If_17">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f74a1524-e9c3-4ba6-b150-306979506c95" InformativeScreenshot="cee1aee608159efe8f6ddf0c61e12601" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                            <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'list'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SpecialKey="True">
+                            <ui:SendHotkey.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e7b99f1c-1a4f-4d57-bada-c9e05138f8a1" InformativeScreenshot="899e5125be06a08142b7f5d41642ee4c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;&lt;java role='list' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:SendHotkey.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:SendHotkey>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+              <If Condition="[Config(&quot;Mode&quot;).ToString=&quot;PROD&quot;]" sap:VirtualizedContainerService.HintSize="833,254" sap2010:WorkflowViewState.IdRef="If_18">
+                <If.Then>
+                  <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ded84339-fc03-4cda-b9f7-61a21b675018" InformativeScreenshot="bd9cc5f4ffe49c0bb84b35c6088f509f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                </If.Then>
+                <If.Else>
+                  <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90315333-9a7f-49ff-b2e2-52bda01cbb52" InformativeScreenshot="bd9cc5f4ffe49c0bb84b35c6088f509f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                </If.Else>
+              </If>
+              <If Condition="[TelaEscolhaTipo]" sap:VirtualizedContainerService.HintSize="833,582" sap2010:WorkflowViewState.IdRef="If_19">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,434" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa94bb5d-9434-4e34-b5de-e650ad22959d" InformativeScreenshot="01ff91286b4d429247c94162841b334c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;&lt;java name='Cancelar ALT C' role='push button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Tipo'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_17" Text="[&quot;&quot;+&quot;[k(tab)]&quot;]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa1ba9c7-9617-4667-ac63-30a1a87d439b" InformativeScreenshot="ee71886c01566aa447ca510c43ae6dae" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo NF*' role='text' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                    <Throw Exception="[New BusinessRuleException(&quot;A escolha do tipo da NF: &quot;+CodigoSOP+&quot; na tela de Associação NFe x RI não foi encontrada.&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  </Sequence>
+                </If.Then>
+              </If>
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1062,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'internal frame'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9a6788f0-4976-436f-87f9-bc791722576f" InformativeScreenshot="188079e291dd9e3e4f1d9a337ef11f32" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;" TimeoutMS="30000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1062,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9abaf6a5-1bf9-40b9-a2cf-7eb90206ce81" InformativeScreenshot="1f583056881f7f24a8d7a5a9af0c7052" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI ( R12_AMEPRD - (E12) )' role='internal frame' /&gt;&lt;java name='Tipo da NFF' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Preenche Doc. Fiscal com NF-e ou NFAE caso for uma das excessões&#xA;" DisplayName="Doc. Fiscal" sap:VirtualizedContainerService.HintSize="1104,138" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[System.Text.RegularExpressions.Regex.Replace(CNPJFornecedor,&quot;[\.\/-]&quot;,&quot;&quot;).Substring(0,CnpjFornecedor.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;-&quot;,&quot;&quot;).Replace(&quot;/&quot;,&quot;&quot;).Length-6)=&quot;08856603&quot; Or System.Text.RegularExpressions.Regex.Replace(CNPJFornecedor,&quot;[\.\/-]&quot;,&quot;&quot;).Substring(0,CnpjFornecedor.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;-&quot;,&quot;&quot;).Replace(&quot;/&quot;,&quot;&quot;).Length-6)=&quot;91392282&quot;]" sap:VirtualizedContainerService.HintSize="713,284" sap2010:WorkflowViewState.IdRef="If_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'combo box'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[&quot;NFAE&quot;+&quot;[k(enter)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89f04f2d-18ab-43f6-b1e7-b1a8baa02fe4" InformativeScreenshot="4912481d8c751ed4d12a7f2d50861ce8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java idx='1' name='Modelo do Documento Fiscal' role='combo box' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </If.Then>
+        <If.Else>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'combo box'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[&quot;NF-e&quot;+&quot;[k(enter)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9ff44be4-a1e7-447b-bc2e-0de426e3d827" InformativeScreenshot="4912481d8c751ed4d12a7f2d50861ce8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java idx='1' name='Modelo do Documento Fiscal' role='combo box' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Verifica se o campo Local de Receb. est[a preenchido se não estiver preenche automático ou se for filial 81 escolhe D15 ou se for Filial D27 escolhe 82" DisplayName="Local Receb." sap:VirtualizedContainerService.HintSize="1104,168" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="LocalRecebimento" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Local'" sap:VirtualizedContainerService.HintSize="1321,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f643a3e4-d926-4c21-a076-352c09093aa4" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[LocalRecebimento]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <If Condition="[LocalRecebimento.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="1321,1442" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <If Condition="[CodigoFilialOracle=&quot;D15&quot; Or CodigoFilialOracle=&quot;D27&quot;]" sap:VirtualizedContainerService.HintSize="1176,1294" sap2010:WorkflowViewState.IdRef="If_3">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="526,560" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[CodigoFilialOracle=&quot;D15&quot;]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="D15" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="telaLocalReceb" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="521,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[&quot;D0081%&quot;+&quot;[k(tab)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2304636e-1c38-4024-aa84-3e761a43b881" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                      <ui:UiElementExists DisplayName="Element Exists 'internal frame  Locais'" Exists="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc80936a-78dd-4855-b490-cb5006a0d969" InformativeScreenshot="88f33cda4dd95a439084e083fa87d870" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,522" sap2010:WorkflowViewState.IdRef="If_11">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_14" Text="[&quot;D0081%&quot;+&quot;[k(tab)]&quot;]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="da2f4cb6-8c21-4863-a622-15160797628c" InformativeScreenshot="2750bc3eb3e69b4606fc915ed3b2d673" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;&lt;java name=' Find' role='text' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f75cfbf5-bf02-4816-a993-030a4d8a3e9e" InformativeScreenshot="d99af25d1f9f7f06bfe5d867621ad1f9" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                </If>
+                <If Condition="[CodigoFilialOracle=&quot;D27&quot;]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="D27" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="telaLocalReceb" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="521,134" sap2010:WorkflowViewState.IdRef="TypeInto_15" Text="[&quot;D0082%&quot;+&quot;[k(tab)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7bc92ad3-3227-4b6b-9b41-afffb710a7ab" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                      <ui:UiElementExists DisplayName="Element Exists 'internal frame  Locais'" Exists="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="57269c8e-dcfd-4622-8a95-40db08be1bd5" InformativeScreenshot="88f33cda4dd95a439084e083fa87d870" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,374" sap2010:WorkflowViewState.IdRef="If_13">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[&quot;D0082%0046600280001%&quot;+&quot;[k(enter)]&quot;]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ab9f20d-bf76-4f18-9a4e-82cfe452babe" InformativeScreenshot="2750bc3eb3e69b4606fc915ed3b2d673" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;&lt;java name=' Find' role='text' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="605,1146" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="563,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[&quot;%&quot;+&quot;[k(tab)]&quot;]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="37ce86fd-4727-4865-9eb8-9af7ac734973" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Local'" sap:VirtualizedContainerService.HintSize="563,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                  <ui:GetValue.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d49fb316-e5f5-4c7a-b4d4-a3d9e81ddf1e" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetValue.Target>
+                  <ui:GetValue.Value>
+                    <OutArgument x:TypeArguments="x:String">[LocalRecebimento]</OutArgument>
+                  </ui:GetValue.Value>
+                </ui:GetValue>
+                <If Condition="[LocalRecebimento.Trim=&quot;%&quot;]" sap:VirtualizedContainerService.HintSize="563,672" sap2010:WorkflowViewState.IdRef="If_15">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="418,524" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw Exception="[New BusinessRuleException(&quot;A lista de valores para o campo Local de Recebimento da transação NFEE x RI não contém entradas.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,341" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="MensagemErro" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["O CNPJ do fornecedor do documento não está cadastrado na Filial"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="PastaOrigem">[PastaOrigem]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="DocumentoId">[DocumentoId]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="RI">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="Mensagem">[MensagemErro]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <Throw Exception="[New BusinessRuleException(Config(&quot;Chave_Cancelamento&quot;).ToString + &quot; PROCESSO DESCONSIDERADO - O CNPJ do fornecedor (&quot;+CNPJFornecedor+&quot;) do documento não está cadastrado na Filial (&quot;+CodigoFilialOracle+&quot;).&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      </Sequence>
+                    </Sequence>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Else>
+          </If>
+        </If.Then>
+      </If>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Verifica se o campo Local Fornec. está preenchido caso não esteja tenta preencher automático.&#xA;" DisplayName="Local Fornec." sap:VirtualizedContainerService.HintSize="1104,153" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="localFornecedor" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Local Fornecedor'" sap:VirtualizedContainerService.HintSize="1129,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1cdaaa2e-77eb-4454-8946-a63916831d10" InformativeScreenshot="c65ba2022812a310097967543b0f8852" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Fornec*' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[localFornecedor]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <If Condition="[localFornecedor.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="1129,1354" sap2010:WorkflowViewState.IdRef="If_7">
+        <If.Then>
+          <Sequence sap2010:Annotation.AnnotationText="Preenche automático ou se for filial 81 escolhe D15" DisplayName="Local Receb." sap:VirtualizedContainerService.HintSize="984,1204" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="LocalRecebimento" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[CodigoFilialPedido=&quot;D15&quot;]" sap:VirtualizedContainerService.HintSize="942,1084" sap2010:WorkflowViewState.IdRef="If_6">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="563,934" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="telaLocalReceb" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="521,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="[&quot;%D15&quot;+&quot;[k(tab)]&quot;]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8fd52c78-d413-403f-ac06-97be77da1687" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:UiElementExists DisplayName="Element Exists 'internal frame  Locais'" Exists="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b2eef283-615e-4321-ab40-75f5e690c342" InformativeScreenshot="88f33cda4dd95a439084e083fa87d870" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutShort&quot;).ToString)]">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                  <If Condition="[telaLocalReceb]" sap:VirtualizedContainerService.HintSize="521,522" sap2010:WorkflowViewState.IdRef="If_5">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[&quot;%D15&quot;+&quot;[k(tab)]&quot;]">
+                          <ui:TypeInto.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05df1b71-78b5-48c7-9f5a-b0fd788c34f3" InformativeScreenshot="2750bc3eb3e69b4606fc915ed3b2d673" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;&lt;java name=' Find' role='text' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:TypeInto.Target>
+                        </ui:TypeInto>
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3221d841-8e02-416d-9dc4-e159a4b27257" InformativeScreenshot="d99af25d1f9f7f06bfe5d867621ad1f9" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Locais' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Local'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="[&quot;%&quot;+&quot;[k(tab)]&quot;]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f1b8c21a-5914-4c84-8213-0b2e9dcb84d0" InformativeScreenshot="9a887d2dac9a54ebb210185db3e5ca3f" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Local Receb.*' role='text' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+              </If.Else>
+            </If>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Verifica se está vazio, caso esteja preenche com a informação do PO&#xA;" DisplayName="Cond. Pagto." sap:VirtualizedContainerService.HintSize="1104,138" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="CondPagto" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Cond.Pagto'" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3032260b-82d0-4edc-8b15-9ac6720bedc3" InformativeScreenshot="da33610d0da65c77529f2666bb51d3f1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Cond.Pagto*' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[CondPagto]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <If Condition="[CondPagto.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="484,284" sap2010:WorkflowViewState.IdRef="If_8">
+        <If.Then>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text Cond Pagto'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" Text="[CondicaoDePagamento+&quot;[k(tab)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2ec1d84f-13ae-4015-9a47-c743b238cf71" InformativeScreenshot="0442bde7a9b27eaa2cf513ca1790f50d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Oracle Applications - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java idx='1' name='Cond.Pagto RequiredList of Values' role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </If.Then>
+      </If>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Extrai as informações que seram utilizadas para realizar o filtro na tela de operações fiscais para buscar o RI&#xA;" DisplayName="Dados Filtro RI" sap:VirtualizedContainerService.HintSize="755,550" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Tipo'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f28ff6da-36a8-4af4-8365-9a8827c1a9cc" InformativeScreenshot="f6f4cc3302df86a9bd0a4c2858e3e2e5" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Oracle Applications - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java name='Tipo NF RequiredList of Values' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[NFEE_Tipo]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Valor'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ecccdf6f-eaf6-41ad-9f59-f53890ae8335" InformativeScreenshot="14dcf4c2034cf9a71491cd2f0fad64d8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Oracle Applications - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java idx='1' name='Valor' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[NFEE_ValorTotal]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Chave'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="782154f4-567b-4acf-bf56-50c0ad32a975" InformativeScreenshot="8c9907940c3e56e00eaeeb126aa52d13" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Oracle Applications - AMEPRJB' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java idx='1' name='Chave' role='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[NFEE_ChaveNota]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -1,0 +1,2 @@
+<wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Information' />
+<java name='Run' role='push button' />
