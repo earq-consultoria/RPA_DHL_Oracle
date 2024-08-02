@@ -1,0 +1,1346 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Parse_processo_exportacao_dados" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_ContaContabil" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CnpjFornecedor" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoFilialPedido" Type="OutArgument(x:String)" />
+    <x:Property Name="out_AliquotaISS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CofinsCst" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PisCst" Type="OutArgument(x:String)" />
+    <x:Property Name="out_UsoPretendido" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PrecoUnitario" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Quantidade" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DescricaoServico" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Especie" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PisCofinsCsll" Type="OutArgument(x:String)" />
+    <x:Property Name="out_NumeroDoPedido" Type="OutArgument(x:String)" />
+    <x:Property Name="out_AliquotaDeIRRF" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ValorDeINSS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BaseDeCalculoINSS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ValorDeISS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BaseDeCalculoISS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_MunicipioFilial" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ValorTotal" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DataEmissao" Type="OutArgument(x:String)" />
+    <x:Property Name="out_NumeroDocumento" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ProcessoExportacaoId" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoSOP" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoFilialOracle" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoTomador" Type="OutArgument(x:String)" />
+    <x:Property Name="in_Transacao" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="out_ValorDeIrrf" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoFilialOracleExtenso" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CodigoServicoCapa" Type="OutArgument(x:String)" />
+    <x:Property Name="out_codigoDoServicoLinha" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DiscriminacaoComplementoItem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PastaOrigem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ValorDeICMS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BaseDeCalculoICMS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DocumentoId" Type="OutArgument(x:String)" />
+    <x:Property Name="out_TipoProcesso" Type="OutArgument(x:String)" />
+    <x:Property Name="out_REGULARIZACAO" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Serie" Type="OutArgument(x:String)" />
+    <x:Property Name="out_LinhasComplemento" Type="OutArgument(x:String)" />
+    <x:Property Name="out_baseDeCalculoIR" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ChaveDeAcesso" Type="OutArgument(x:String)" />
+    <x:Property Name="out_TipoCTE" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PaisOrigem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_EstadoOrigem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CidadeOrigem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PaisDestino" Type="OutArgument(x:String)" />
+    <x:Property Name="out_EstadoDestino" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CidadeDestino" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CondicaoDePagamento" Type="OutArgument(x:String)" />
+    <x:Property Name="out_RazaoSocialFornecedor" Type="OutArgument(x:String)" />
+    <x:Property Name="out_NaturezaDeOperacao" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CFOP" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ValorTotalProduto" Type="OutArgument(x:String)" />
+    <x:Property Name="out_EmailSolicitante" Type="OutArgument(x:String)" />
+    <x:Property Name="out_aliquotaINSS" Type="OutArgument(x:String)" />
+    <x:Property Name="out_EstadoFilial" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,5920.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Parse_processo_exportacao_dados_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Parses a processo exportação dados to be processed" DisplayName="Parse_processo_exportacao_dados" sap:VirtualizedContainerService.HintSize="646.4,5856" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try parse data" sap:VirtualizedContainerService.HintSize="584,5712.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="546.4,5483.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;cnpjFornecedor&quot;) And (not in_Transacao.SpecificContent(&quot;cnpjFornecedor&quot;) Is Nothing)]" DisplayName="If cnpjFornecedor exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CnpjFornecedor]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("cnpjFornecedor").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_7" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoFilialOracle&quot;) And (not in_Transacao.SpecificContent(&quot;codigoFilialOracle&quot;) Is Nothing)]" DisplayName="If codigoFilialpedido exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_CodigoFilialPedido]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoFilialOracle").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_8" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;aliquotaISS&quot;) And (not in_Transacao.SpecificContent(&quot;aliquotaISS&quot;) Is Nothing)]" DisplayName="If aliquotaIss exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_AliquotaISS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("aliquotaISS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_9" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;cofinsCst&quot;) And (not in_Transacao.SpecificContent(&quot;cofinsCst&quot;) Is Nothing)]" DisplayName="If cofinsCST exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CofinsCst]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("cofinsCst").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_14" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;pisCst&quot;) And (not in_Transacao.SpecificContent(&quot;pisCst&quot;) Is Nothing)]" DisplayName="If pisCST exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_PisCst]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("pisCst").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_15" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;usoPretendido&quot;) And (not in_Transacao.SpecificContent(&quot;usoPretendido&quot;) Is Nothing)]" DisplayName="If usoPretendido exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_UsoPretendido]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("usoPretendido").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_16" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;especie&quot;) And (not in_Transacao.SpecificContent(&quot;especie&quot;) Is Nothing)]" DisplayName="If especie exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_Especie]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("especie").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_17" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;pisCofinsCsll&quot;) And (not in_Transacao.SpecificContent(&quot;pisCofinsCsll&quot;) Is Nothing)]" DisplayName="If pisCofinsCst exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_PisCofinsCsll]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("pisCofinsCsll").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_18" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;numeroDoPedido&quot;) And (not in_Transacao.SpecificContent(&quot;numeroDoPedido&quot;) Is Nothing)]" DisplayName="If numeroDoPedido exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_NumeroDoPedido]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("numeroDoPedido").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_19" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;aliquotaDeIRRF&quot;) And (not in_Transacao.SpecificContent(&quot;aliquotaDeIRRF&quot;) Is Nothing)]" DisplayName="If aliquotaDeIRRF exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_AliquotaDeIRRF]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("aliquotaDeIRRF").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_20" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;valorDeINSS&quot;) And (not in_Transacao.SpecificContent(&quot;valorDeINSS&quot;) Is Nothing)]" DisplayName="If valorDeInss exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ValorDeINSS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("valorDeINSS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_21" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;baseDeCalculoINSS&quot;) And (not in_Transacao.SpecificContent(&quot;baseDeCalculoINSS&quot;) Is Nothing)]" DisplayName="If baseDeCalculoINSS exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_BaseDeCalculoINSS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("baseDeCalculoINSS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_22" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;valorDeISS&quot;) And (not in_Transacao.SpecificContent(&quot;valorDeISS&quot;) Is Nothing)]" DisplayName="If valorDeIss exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476.8,394.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_ValorDeISS]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("valorDeISS").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[String.IsNullOrEmpty(out_ValorDeISS)]" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="If_60">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_60">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_ValorDeISS]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["0,00"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_23" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoDoServicoCapa&quot;) And (not in_Transacao.SpecificContent(&quot;codigoDoServicoCapa&quot;) Is Nothing)]" DisplayName="If codigoDoServicoCapa exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_19">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CodigoServicoCapa]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoDoServicoCapa").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_24" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoDoServicoLinha&quot;) And (not in_Transacao.SpecificContent(&quot;codigoDoServicoLinha&quot;) Is Nothing)]" DisplayName="If codigoDoServicoLinha exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_32">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_32">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_codigoDoServicoLinha]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoDoServicoLinha").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_25" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;municipioFilial&quot;) And (not in_Transacao.SpecificContent(&quot;municipioFilial&quot;) Is Nothing)]" DisplayName="If municipioFilial exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_20">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_MunicipioFilial]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("municipioFilial").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_26" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;valorTotal&quot;) And (not in_Transacao.SpecificContent(&quot;valorTotal&quot;) Is Nothing)]" DisplayName="If valotTotal exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_21">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ValorTotal]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("valorTotal").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_27" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;dataDeEmissao&quot;) And (not in_Transacao.SpecificContent(&quot;dataDeEmissao&quot;) Is Nothing)]" DisplayName="If dataEmissao exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_22">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_DataEmissao]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("dataDeEmissao").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_28" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;numeroDocumento&quot;) And (not in_Transacao.SpecificContent(&quot;numeroDocumento&quot;) Is Nothing)]" DisplayName="If numeroDocumento exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_23">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_23">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_NumeroDocumento]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("numeroDocumento").ToString.Replace(".","").Replace("/","").Replace("\","").Replace("-","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_29" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;cnpjFornecedor&quot;) And (not in_Transacao.SpecificContent(&quot;cnpjFornecedor&quot;) Is Nothing)]" DisplayName="If cnpjFornecedor exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_24">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_24">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CnpjFornecedor]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("cnpjFornecedor").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_30" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;id&quot;) And (not in_Transacao.SpecificContent(&quot;id&quot;) Is Nothing)]" DisplayName="If processoExportacaoId exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_25">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_25">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ProcessoExportacaoId]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("id").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_31" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;DocumentoId&quot;) And (not in_Transacao.SpecificContent(&quot;DocumentoId&quot;) Is Nothing)]" DisplayName="If DocumentoId exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_58">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_58">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_DocumentoId]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("DocumentoId").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_32" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;tipoProcesso&quot;) And (not in_Transacao.SpecificContent(&quot;tipoProcesso&quot;) Is Nothing)]" DisplayName="If TipoProcesso exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_59">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_59">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_TipoProcesso]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("tipoProcesso").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_33" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoSOP&quot;) And (not in_Transacao.SpecificContent(&quot;codigoSOP&quot;) Is Nothing)]" DisplayName="If codigoSOP exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_26">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_26">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CodigoSOP]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoSOP").ToString.ToUpper.Replace("TRABALHISTA","").Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_34" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoFilialOracle&quot;) And (not in_Transacao.SpecificContent(&quot;codigoFilialOracle&quot;) Is Nothing)]" DisplayName="If codigoFilialOracle exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_27">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476.8,1160.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Boolean" Name="CodFilial_Check" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_27">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_CodigoFilialOracle]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoFilialOracle").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[out_CodigoFilialOracle.Contains(&quot;D016&quot;)]" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="If_57">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CodigoFilialOracle]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[out_CodigoFilialOracle.Replace("D0","")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <ui:IsMatch sap2010:Annotation.AnnotationText="Caso seja um Cod Filial Oracle do Formato X0011 retira os zeros entre o cod.&#xA;" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="433.6,120" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[out_CodigoFilialOracle]" IsBuilderTabModified="False" Pattern="([A-z]0{2}\d{2})" RegexOption="IgnoreCase, Compiled" Result="[CodFilial_Check]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:IsMatch>
+                <If Condition="[CodFilial_Check]" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="If_55">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CodigoFilialOracle]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[out_CodigoFilialOracle.Replace("00","")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <ui:IsMatch sap2010:Annotation.AnnotationText="Caso seja um Cod Filial Oracle do Formato X0111 retira os zeros entre o cod.&#xA;" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="433.6,120" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[out_CodigoFilialOracle]" IsBuilderTabModified="False" Pattern="([A-z]0{1,2}[1-9]{3})" RegexOption="IgnoreCase, Compiled" Result="[CodFilial_Check]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:IsMatch>
+                <If Condition="[CodFilial_Check]" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="If_56">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CodigoFilialOracle]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[out_CodigoFilialOracle.Replace("0","")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_35" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoTomador&quot;) And (not in_Transacao.SpecificContent(&quot;codigoTomador&quot;) Is Nothing)]" DisplayName="If codigoTomador exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_28">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_28">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CodigoTomador]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoTomador").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_36" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;baseDeCalculoISS&quot;) And (not in_Transacao.SpecificContent(&quot;baseDeCalculoISS&quot;) Is Nothing)]" DisplayName="If BaseDeCalculoISS exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_29">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476.8,394.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_BaseDeCalculoISS]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("baseDeCalculoISS").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[String.IsNullOrEmpty(out_BaseDeCalculoISS)]" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="If_61">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_61">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_BaseDeCalculoISS]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["0,00"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_37" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;valorDeIrrf&quot;) And (not in_Transacao.SpecificContent(&quot;valorDeIrrf&quot;) Is Nothing)]" DisplayName="If valor de irrf exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_30">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_30">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ValorDeIrrf]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("valorDeIrrf").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_38" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;codigoFilialOracleExtenso&quot;) And (not in_Transacao.SpecificContent(&quot;codigoFilialOracleExtenso&quot;) Is Nothing)]" DisplayName="If valor de codigoFilialOracleExtenso exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_31">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_31">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CodigoFilialOracleExtenso]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("codigoFilialOracleExtenso").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_39" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;discriminacaoComplementoItem&quot;) And (not in_Transacao.SpecificContent(&quot;discriminacaoComplementoItem&quot;) Is Nothing)]" DisplayName="If valor de codigoFilialOracleExtenso exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_34">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_34">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_DiscriminacaoComplementoItem]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("discriminacaoComplementoItem").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_40" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;PastaOrigem&quot;) And (not in_Transacao.SpecificContent(&quot;PastaOrigem&quot;) Is Nothing)]" DisplayName="If valor de PastaOrigem exists and is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_43">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_43">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_PastaOrigem]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(in_Transacao.SpecificContent("PastaOrigem").ToString,"(\\)$","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_41" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;REGULARIZADO&quot;) And (not in_Transacao.SpecificContent(&quot;REGULARIZADO&quot;) Is Nothing)]" DisplayName="If valor de REGULARIZADO is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_49">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_49">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_REGULARIZACAO]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("REGULARIZADO").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_42" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;baseDeCalculoICMS&quot;) And (not in_Transacao.SpecificContent(&quot;baseDeCalculoICMS&quot;) Is Nothing)]" DisplayName="If valor de BaseDeCalculoICMS is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_50">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_50">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_BaseDeCalculoICMS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("baseDeCalculoICMS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_43" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;valorDeICMS&quot;) And (not in_Transacao.SpecificContent(&quot;valorDeICMS&quot;) Is Nothing)]" DisplayName="If valor de ValorDeICMS is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_51">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_51">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ValorDeICMS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("valorDeICMS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_44" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;Serie&quot;) And (not in_Transacao.SpecificContent(&quot;Serie&quot;) Is Nothing)]" DisplayName="If valor de Serie is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_62">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_62">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_Serie]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("Serie").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_45" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;linhasComplemento&quot;) And (not in_Transacao.SpecificContent(&quot;linhasComplemento&quot;) Is Nothing)]" DisplayName="If Linhas Complemento is not nothing" sap:VirtualizedContainerService.HintSize="484,264.8" sap2010:WorkflowViewState.IdRef="If_63">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_63">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_LinhasComplemento]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("linhasComplemento").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_46" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;baseDeCalculoIR&quot;) And (not in_Transacao.SpecificContent(&quot;baseDeCalculoIR&quot;) Is Nothing)]" DisplayName="If valor de baseDeCalculoIR is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_64">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_64">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_baseDeCalculoIR]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("baseDeCalculoIR").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_47" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;ChaveDeAcesso&quot;) And (not in_Transacao.SpecificContent(&quot;ChaveDeAcesso&quot;) Is Nothing)]" DisplayName="If valor de ChaveDeAcesso is not nothing" sap:VirtualizedContainerService.HintSize="484,52.8" sap2010:WorkflowViewState.IdRef="If_65">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_65">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ChaveDeAcesso]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("ChaveDeAcesso").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_48" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;TipoCTE&quot;) And (not in_Transacao.SpecificContent(&quot;TipoCTE&quot;) Is Nothing)]" DisplayName="If valor de TipoCTE is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_66">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_66">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_TipoCTE]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("TipoCTE").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;PaisOrigem&quot;) And (not in_Transacao.SpecificContent(&quot;PaisOrigem&quot;) Is Nothing)]" DisplayName="If valor de PaisOrigem is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_67">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_67">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_PaisOrigem]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("PaisOrigem").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;EstadoOrigem&quot;) And (not in_Transacao.SpecificContent(&quot;EstadoOrigem&quot;) Is Nothing)]" DisplayName="If valor de EstadoOrigem is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_68">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_68">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_EstadoOrigem]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("EstadoOrigem").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;CidadeOrigem&quot;) And (not in_Transacao.SpecificContent(&quot;CidadeOrigem&quot;) Is Nothing)]" DisplayName="If valor de CidadeOrigem is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_69">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_69">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CidadeOrigem]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("CidadeOrigem").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;PaisDestino&quot;) And (not in_Transacao.SpecificContent(&quot;PaisDestino&quot;) Is Nothing)]" DisplayName="If valor de PaisDestino is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_70">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_70">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_PaisDestino]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("PaisDestino").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;CidadeDestino&quot;) And (not in_Transacao.SpecificContent(&quot;CidadeDestino&quot;) Is Nothing)]" DisplayName="If valor de CidadeDestino is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_71">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_71">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CidadeDestino]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("CidadeDestino").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;CondicaoDePagamento&quot;) And (not in_Transacao.SpecificContent(&quot;CondicaoDePagamento&quot;) Is Nothing)]" DisplayName="If valor de CondicaoDePagamento is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_72">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_72">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CondicaoDePagamento]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("CondicaoDePagamento").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;RazaoSocialFornecedor&quot;) And (not in_Transacao.SpecificContent(&quot;RazaoSocialFornecedor&quot;) Is Nothing)]" DisplayName="If valor de RazaoSocialFornecedor is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_73">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_73">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_RazaoSocialFornecedor]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("RazaoSocialFornecedor").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;NaturezaDeOperacao&quot;) And (not in_Transacao.SpecificContent(&quot;NaturezaDeOperacao&quot;) Is Nothing)]" DisplayName="If valor de NaturezaDeOperacao is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_74">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_74">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_NaturezaDeOperacao]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("NaturezaDeOperacao").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;CFOP&quot;) And (not in_Transacao.SpecificContent(&quot;CFOP&quot;) Is Nothing)]" DisplayName="If valor de CFOP is not nothing" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_75">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_75">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CFOP]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("CFOP").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;ValorTotalProduto&quot;) And (not in_Transacao.SpecificContent(&quot;ValorTotalProduto&quot;) Is Nothing)]" DisplayName="If valor de ValorTotalProduto is not nothing" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="If_76">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_76">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ValorTotalProduto]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("ValorTotalProduto").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_10" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;EmailSolicitante&quot;) And (not in_Transacao.SpecificContent(&quot;EmailSolicitante&quot;) Is Nothing)]" DisplayName="If valor de EmailSolicitante is not nothing" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="If_77">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_77">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_EmailSolicitante]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("EmailSolicitante").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_11" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;aliquotaDeINSS&quot;) And (not in_Transacao.SpecificContent(&quot;aliquotaDeINSS&quot;) Is Nothing)]" DisplayName="If valor de Aliquota de INSS is not nothing" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="If_78">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_78">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_aliquotaINSS]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("aliquotaDeINSS").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_12" />
+            </If.Else>
+          </If>
+          <If Condition="[in_Transacao.SpecificContent.ContainsKey(&quot;EstadoFilial&quot;) And (not in_Transacao.SpecificContent(&quot;EstadoFilial&quot;) Is Nothing)]" DisplayName="If valor de Estado Filial is not nothing" sap:VirtualizedContainerService.HintSize="484,264" sap2010:WorkflowViewState.IdRef="If_79">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign DisplayName="Private: Assign" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_79">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_EstadoFilial]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Transacao.SpecificContent("EstadoFilial").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_13" />
+            </If.Else>
+          </If>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;parse queue item finished&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Erro no parse dos dados da fila. &quot; + exception.StackTrace]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

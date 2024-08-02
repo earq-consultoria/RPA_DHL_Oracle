@@ -1,0 +1,6 @@
+﻿Geração de queue: 
+Usar o processo padrão do orchestrator.
+Na hora de criar as transações, usar um json schema que representa os dados que vão ser lidos da fila.
+Para carregar os itens na fila gerar um csv e importar no ochestrator(não temos acesso ao orchestrator a partir da maquina local), então temos que carregar os itens diretamente via orchestrator 
+para conseguir ler na maquina que está em Praga. 
+Obs.: Não criar um indice unico na fila (transactionId)  porque se fizermos assim seremos forçados a prover um id unico pra cada transação e não sabemos se em algum momento teremos que reprocessar as transações.
