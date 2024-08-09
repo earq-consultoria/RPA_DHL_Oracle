@@ -1,0 +1,322 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "additionalProperties": { "type": "string" },
+  "required": [
+    "id"
+  ],
+  "properties": {
+        "id": {
+          "type": "string",
+          "title": "Title id",
+          "examples": [
+            "id"
+          ],
+          "pattern": "^(.*)$"
+    }, 
+    "riOracle": {
+          "type": "string",
+          "title": "Title riOracle",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "codigoTomador": {
+          "type": "string",
+          "title": "Title codigoTomador",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "codigoFilialOracle": {
+          "type": "string",
+          "title": "Title codigoFilialOracle",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "codigoSOP": {
+          "$id": "#/properties/codigoSOP",
+          "type": "string",
+          "title": "Title codigoSOP",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "cnpjFornecedor": {
+          "$id": "#/properties/cnpjFornecedor",
+          "type": "string",
+          "title": "Title cnpjFornecedor",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "numeroDocumento": {
+          "$id": "#/properties/numeroDocumento",
+          "type": "string",
+          "title": "Title numeroDocumento",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "dataDeEmissao": {
+          "$id": "#/properties/dataDeEmissao",
+          "type": "string",
+          "title": "Title dataDeEmissao",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "valorTotal": {
+          "$id": "#/properties/valorTotal",
+          "type": "string",
+          "title": "Title valorTotal",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "municipioFilial": {
+          "$id": "#/properties/municipioFilial",
+          "type": "string",
+          "title": "Title municipioFilial",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "codigoDoServico": {
+          "$id": "#/properties/codigoDoServico",
+          "type": "string",
+          "title": "Title codigoDoServico",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "baseDeCalculoISS": {
+          "$id": "#/properties/baseDeCalculoISS",
+          "type": "string",
+          "title": "Title baseDeCalculoISS",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "valorDeISS": {
+          "$id": "#/properties/valorDeISS",
+          "type": "string",
+          "title": "Title valorDeISS",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "baseDeCalculoINSS": {
+          "$id": "#/properties/baseDeCalculoINSS",
+          "type": "string",
+          "title": "Title baseDeCalculoINSS",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "valorDeINSS": {
+          "$id": "#/properties/valorDeINSS",
+          "type": "string",
+          "title": "Title valorDeINSS",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "aliquotaDeIRRF": {
+          "$id": "#/properties/aliquotaDeIRRF",
+          "type": "string",
+          "title": "Title aliquotaDeIRRF",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "numeroDoPedido": {
+          "$id": "#/properties/numeroDoPedido",
+          "type": "string",
+          "title": "Title numeroDoPedido",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "pis": {
+          "$id": "#/properties/pis",
+          "type": "string",
+          "title": "Title pis",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "cofins": {
+          "$id": "#/properties/cofins",
+          "type": "string",
+          "title": "Title cofins",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "csll": {
+          "$id": "#/properties/csll",
+          "type": "string",
+          "title": "Title csll",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "descricaoDoServico": {
+          "$id": "#/properties/descricaoDoServico",
+          "type": "string",
+          "title": "Title descricaoDoServico",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "quantidade": {
+          "$id": "#/properties/quantidade",
+          "type": "string",
+          "title": "Title quantidade",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "precoUnitario": {
+          "$id": "#/properties/precoUnitario",
+          "type": "string",
+          "title": "Title precoUnitario",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "usoPretendido": {
+          "$id": "#/properties/usoPretendido",
+          "type": "string",
+          "title": "Title usoPretendido",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "pisCst": {
+          "$id": "#/properties/pisCst",
+          "type": "string",
+          "title": "Title pisCst",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "cofinsCst": {
+          "$id": "#/properties/cofinsCst",
+          "type": "string",
+          "title": "Title cofinsCst",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "aliquotaISS": {
+          "$id": "#/properties/aliquotaISS",
+          "type": "string",
+          "title": "Title aliquotaISS",
+          
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "eShare": {
+          "$id": "#/properties/eShare",
+          "type": "string",
+          "title": "Title eShare",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "especie": {
+          "$id": "#/properties/especie",
+          "type": "string",
+          "title": "Title especie",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "fornecedorAtivo": {
+          "$id": "#/properties/fornecedorAtivo",
+          "type": "string",
+          "title": "Title fornecedorAtivo",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "contaContabil": {
+          "$id": "#/properties/contaContabil",
+          "type": "string",
+          "title": "Title contaContabil",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }, 
+    "pisCofinsCsll": {
+          "$id": "#/properties/pisCofinsCsll",
+          "type": "string",
+          "title": "Title pisCofinsCsll",
+          "examples": [
+            "stringTest"
+          ],
+          "pattern": "^(.*)$"
+        }
+  }
+}

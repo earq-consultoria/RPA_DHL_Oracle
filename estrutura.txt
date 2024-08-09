@@ -1,0 +1,10 @@
+Estrutura desses diretorios: 
+
+dhl-dtentry-oracle: projeto que consome um queue no orchestrator.
+dhl-dtentry-oracle-sem-queue: consome uma API mock do SOAPUI que tem que ser alimentada com um json.
+dhl-dtentry-oracle-merge: diretorio usado para fazer merge entre os arquivos da versão que consome itens da fila e da que consome da API. 
+dhl-dtentry-oracle-insert-into-queue: É a rotina que insere itens na fila e está separada para ser testada, vai consumir da API e inserir transações na Queue do oracle quando tivermos aplicação rodando no ambiente de QA.
+após isso vai ser integrada no projeto que consome da queue.
+
+Obs.: Basicamente essa é a forma com que podemos testar localmente o projeto e depois testa-lo nos ambientes de QA e Produção.
+Na pratica o que muda é o ponto de entrada dos dados e a estrutura de processamento dos itens.
