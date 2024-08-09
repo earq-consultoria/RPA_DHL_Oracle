@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Entrada_da_NF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<Activity mc:Ignorable="sap sap2010" x:Class="Entrada_da_NF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="CodigoSop" Type="InArgument(x:String)" />
     <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -49,7 +49,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2212,5544</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2212,5584</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Entrada_da_NF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -1063,7 +1063,7 @@
         </If>
       </Sequence>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da Especie, Serie, Número, Data de Emissão, Valor Total&#xA;&#xA;" DisplayName="Preenchimento Geral" sap:VirtualizedContainerService.HintSize="2160,143.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da Especie, Serie, Número, Data de Emissão, Valor Total&#xA;&#xA;" DisplayName="Preenchimento Geral" sap:VirtualizedContainerService.HintSize="512,992.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="SelecaoSerie" />
         <Variable x:TypeArguments="x:Boolean" Name="notaFiscalRevertida" />
@@ -1432,7 +1432,7 @@
           </If.Else>
         </If>
       </Sequence>
-      <Sequence DisplayName="Data Emissao" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_79">
+      <Sequence DisplayName="Data Emissao" sap:VirtualizedContainerService.HintSize="547.2,2176.8" sap2010:WorkflowViewState.IdRef="Sequence_79">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1450,6 +1450,9 @@
           <If.Then>
             <Throw Exception="[new BusinessRuleException(&quot;A data de emissão da NFF não deve ser nulo.&quot;)]" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_12" />
           </If.Then>
+          <If.Else>
+            <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_204" />
+          </If.Else>
         </If>
         <ui:CommentOut sap2010:Annotation.AnnotationText="Atividade de validacao desativada por pedido da DHL (D0025-735)." DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,366.4" sap2010:WorkflowViewState.IdRef="CommentOut_5">
           <ui:CommentOut.Body>
@@ -1470,6 +1473,9 @@
                 <If.Then>
                   <Throw Exception="[new BusinessRuleException(&quot;A data de emissão da NFF inválida (&quot;+DataEmissao.Replace(&quot;/&quot;,&quot;.&quot;)+&quot;)&quot;)]" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_13" />
                 </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_205" />
+                </If.Else>
               </If>
             </Sequence>
           </ui:CommentOut.Body>
@@ -1496,10 +1502,10 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="484,283.333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CInt(Config(&quot;MaxNumberOfRetries&quot;).ToString)]">
+          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="387.2,283.2" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CInt(Config(&quot;MaxNumberOfRetries&quot;).ToString)]">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <ui:UiElementExists DisplayName="Element Exists 'Data Faturamento está correta' question" Exists="[dataFaturamentoEstaCorreta]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                <ui:UiElementExists DisplayName="Element Exists 'Data Faturamento está correta' question" Exists="[dataFaturamentoEstaCorreta]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                   <ui:UiElementExists.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4cd1c659-c710-44e3-8af3-43985874fba9" InformativeScreenshot="aa030ca4672e982dbc6b3bf99399123c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' /&gt;&lt;java name='Entrada da NF (*' role='internal frame' /&gt;&lt;java name='Precaução APP-CLL-*: A data de emissão da NF está correta?' role='internal frame' /&gt;" TimeoutMS="[CInt(Config(&quot;TimeoutVeryShort&quot;).ToString)]">
                       <ui:Target.WaitForReady>
@@ -1514,7 +1520,7 @@
               <ActivityFunc x:TypeArguments="x:Boolean" />
             </ui:RetryScope.Condition>
           </ui:RetryScope>
-          <If Condition="[dataFaturamentoEstaCorreta]" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[dataFaturamentoEstaCorreta]" sap:VirtualizedContainerService.HintSize="387.2,288.8" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
               <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
@@ -1539,9 +1545,12 @@
                 </ui:Click.Target>
               </ui:Click>
             </If.Then>
+            <If.Else>
+              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_206" />
+            </If.Else>
           </If>
         </Sequence>
-        <Sequence sap2010:Annotation.AnnotationText="Verifica ser a data de emiss'ao que f/oi preenchida [e valida ou se é atual ou futura ao lançamento&#xA;" DisplayName="Verifica data valida" sap:VirtualizedContainerService.HintSize="572.8,1284" sap2010:WorkflowViewState.IdRef="Sequence_78">
+        <Sequence sap2010:Annotation.AnnotationText="Verifica ser a data de emiss'ao que f/oi preenchida [e valida ou se é atual ou futura ao lançamento&#xA;" DisplayName="Verifica data valida" sap:VirtualizedContainerService.HintSize="484.8,143.2" sap2010:WorkflowViewState.IdRef="Sequence_78">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="dataForaDoPeriodo" />
           </Sequence.Variables>
@@ -1561,9 +1570,9 @@
               </ui:Target>
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[dataForaDoPeriodo]" sap:VirtualizedContainerService.HintSize="510.4,980.8" sap2010:WorkflowViewState.IdRef="If_60">
+          <If Condition="[dataForaDoPeriodo]" sap:VirtualizedContainerService.HintSize="510.4,981.6" sap2010:WorkflowViewState.IdRef="If_60">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476.8,797.6" sap2010:WorkflowViewState.IdRef="Sequence_77">
+              <Sequence sap:VirtualizedContainerService.HintSize="476.8,798.4" sap2010:WorkflowViewState.IdRef="Sequence_77">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="MensagemErro" />
                 </Sequence.Variables>
@@ -1572,7 +1581,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_39">
+                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_39">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
                   </Assign.To>
@@ -1648,7 +1657,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="476.8,624" sap2010:WorkflowViewState.IdRef="Sequence_50">
+            <Sequence sap:VirtualizedContainerService.HintSize="476.79999999999995,694.4" sap2010:WorkflowViewState.IdRef="Sequence_50">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="MensagemErro" />
               </Sequence.Variables>
@@ -1674,7 +1683,7 @@
                   <InArgument x:TypeArguments="x:String" x:Key="Mensagem">[MensagemErro]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Sim ALT S'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_50" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Sim ALT S'" sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Click_50" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -1696,10 +1705,10 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <Throw Exception="[New BusinessRuleException(&quot;[PRINT]&quot;+Config(&quot;Chave_Cancelamento&quot;).ToString + &quot; PROCESSO DESCONSIDERADO - Documento já lançado, favor verificar e nos contatar via e-mail caso o novo lançamento seja devido mesmo assim.&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_15" />
-              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <Throw Exception="[New BusinessRuleException(&quot;[PRINT]&quot;+Config(&quot;Chave_Cancelamento&quot;).ToString + &quot; PROCESSO DESCONSIDERADO - Documento já lançado, favor verificar e nos contatar via e-mail caso o novo lançamento seja devido mesmo assim.&quot;)]" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_15" />
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                 <ui:CommentOut.Body>
-                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,356" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="546.4,376" sap2010:WorkflowViewState.IdRef="Sequence_85">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1723,6 +1732,9 @@
               </ui:CommentOut>
             </Sequence>
           </If.Then>
+          <If.Else>
+            <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_207" />
+          </If.Else>
         </If>
         <ui:UiElementExists DisplayName="Element Exists 'push button  Sim ALT S'" Exists="[notaFiscalRevertida]" sap:VirtualizedContainerService.HintSize="484.8,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_13">
           <ui:UiElementExists.Target>
@@ -1733,7 +1745,7 @@
             </ui:Target>
           </ui:UiElementExists.Target>
         </ui:UiElementExists>
-        <If Condition="[notaFiscalRevertida]" sap:VirtualizedContainerService.HintSize="484.8,381.6" sap2010:WorkflowViewState.IdRef="If_46">
+        <If Condition="[notaFiscalRevertida]" sap:VirtualizedContainerService.HintSize="484.8,380" sap2010:WorkflowViewState.IdRef="If_46">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1741,13 +1753,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_51">
+            <Sequence sap:VirtualizedContainerService.HintSize="376.8,196.8" sap2010:WorkflowViewState.IdRef="Sequence_51">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Sim ALT S'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_51" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Sim ALT S'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_51" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
