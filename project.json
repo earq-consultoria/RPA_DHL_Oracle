@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "dhl-dtentry-oracle",
   "description": "Processo de lançamento de notas no oracle",
   "main": "Main.xaml",

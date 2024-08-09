@@ -33,7 +33,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254.4,2075.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,1624.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReceiptData_Mbot_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -97,7 +97,7 @@
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Caso não tenha ocorrido nenhum problema no lançamento do pedido, então entra nesta sequencia para aprovar ou para logar os motivos de retenção.&#xA;&#xA;Argumentos: &#xA;in_ApplicationName = nome do programa&#xA;in_BranchNumber = numero da filial&#xA;in_ProcessoExportacaoId = id do processo que vem do ppd&#xA;in_Status = ?&#xA;in_Config = parametros de configuração" DisplayName="Aprovar pedido" sap:VirtualizedContainerService.HintSize="512,1970.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Caso não tenha ocorrido nenhum problema no lançamento do pedido, então entra nesta sequencia para aprovar ou para logar os motivos de retenção.&#xA;&#xA;Argumentos: &#xA;in_ApplicationName = nome do programa&#xA;in_BranchNumber = numero da filial&#xA;in_ProcessoExportacaoId = id do processo que vem do ppd&#xA;in_Status = ?&#xA;in_Config = parametros de configuração" DisplayName="Aprovar pedido" sap:VirtualizedContainerService.HintSize="512,1560" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="janelaRetencao" />
       <Variable x:TypeArguments="x:String" Default="Retenção: " Name="motivosRetencao" />
@@ -111,13 +111,13 @@
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Iniciando aprovação de pedido&quot;]" />
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="449.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,598.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="638.4,1447.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Ao entrar na tela de RI's, verifica a existencia do pop de erro, que impede a aprovação." DisplayName="Verifica popUp Op.Fiscal sendo usada" sap:VirtualizedContainerService.HintSize="449.6,486.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence sap2010:Annotation.AnnotationText="Ao entrar na tela de RI's, verifica a existencia do pop de erro, que impede a aprovação." DisplayName="Verifica popUp Op.Fiscal sendo usada" sap:VirtualizedContainerService.HintSize="576,1335.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="popupErro" />
             </Sequence.Variables>
@@ -128,7 +128,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists popup Erro" Exists="[popupErro]" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+            <ui:UiElementExists DisplayName="Element Exists popup Erro" Exists="[popupErro]" sap:VirtualizedContainerService.HintSize="513.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7fee5fc6-f430-4535-9031-fb69b216a5c9" InformativeScreenshot="526d8bb09f63c5d806e097c7a1cabf1b" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='{{in_ApplicationName}}' /&gt;&lt;java name='Erro*' role='internal frame' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -140,7 +140,7 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[popupErro]" sap:VirtualizedContainerService.HintSize="387.2,183.2" sap2010:WorkflowViewState.IdRef="If_10">
+            <If Condition="[popupErro]" sap:VirtualizedContainerService.HintSize="513.6,1044.8" sap2010:WorkflowViewState.IdRef="If_10">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="480,861.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
@@ -272,7 +272,7 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[janelaRetencao]" DisplayName="Janela de retenção apareceu?" sap:VirtualizedContainerService.HintSize="449.6,673.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[janelaRetencao]" DisplayName="Janela de retenção apareceu?" sap:VirtualizedContainerService.HintSize="449.6,263.2" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -530,9 +530,9 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <If Condition="[(Not CodigoSOP.Contains(&quot;69&quot;))]" sap:VirtualizedContainerService.HintSize="367.2,410.4" sap2010:WorkflowViewState.IdRef="If_4">
+        <If Condition="[(Not CodigoSOP.Contains(&quot;69&quot;))]" sap:VirtualizedContainerService.HintSize="713,235" sap2010:WorkflowViewState.IdRef="If_4">
           <If.Then>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Aprovar o pedido" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Oracle/Aprovacao/Aprovação do pedido.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Aprovar o pedido" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Oracle/Aprovacao/Aprovação do pedido.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="RI">[RI]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
@@ -558,7 +558,7 @@
             </ui:InvokeWorkflowFile>
           </If.Then>
           <If.Else>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Update Processo Exportacao workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Oracle/Atualizar Processo Exportacao.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Update Processo Exportacao workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Oracle/Atualizar Processo Exportacao.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[Config]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
