@@ -19,7 +19,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1314,11927</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>883.3333333333334,13175.333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CapturaStatusRI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -96,13 +96,13 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CapturaStatusRI" sap:VirtualizedContainerService.HintSize="824,11862" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CapturaStatusRI" sap:VirtualizedContainerService.HintSize="824,13110.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="NFEE_EncontraRI" sap:VirtualizedContainerService.HintSize="762,11751" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="NFEE_EncontraRI" sap:VirtualizedContainerService.HintSize="762,13000" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="TelaConsultaOpFiscal" />
         <Variable x:TypeArguments="x:Boolean" Name="TelaOperacoesFiscais" />
@@ -115,7 +115,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="[TRATATIVA: ERRO DE APROVAÇÂO] &#xA;Valida e trata o PopUp de Recebimento fisico não concluido" DisplayName="PopUp PRECAUCAO" sap:VirtualizedContainerService.HintSize="700,623" sap2010:WorkflowViewState.IdRef="Sequence_32">
+      <Sequence sap2010:Annotation.AnnotationText="[TRATATIVA: ERRO DE APROVAÇÂO] &#xA;Valida e trata o PopUp de Recebimento fisico não concluido" DisplayName="PopUp PRECAUCAO" sap:VirtualizedContainerService.HintSize="700,1368" sap2010:WorkflowViewState.IdRef="Sequence_32">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="popupPrecaucao" />
         </Sequence.Variables>
@@ -126,7 +126,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:UiElementExists DisplayName="Element Exists popup precaucao" Exists="[popupPrecaucao]" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+        <ui:UiElementExists DisplayName="Element Exists popup precaucao" Exists="[popupPrecaucao]" sap:VirtualizedContainerService.HintSize="526,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
           <ui:UiElementExists.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0065ea21-e9e4-47dc-b190-fc0a3739de85" InformativeScreenshot="04a8d54b04c15d3b96d0f81221f97cd9" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='{{in_ApplicationName}}' /&gt;&lt;java name='Precaução*' role='internal frame' /&gt;" TimeoutMS="5000">
               <ui:Target.WaitForReady>
@@ -135,9 +135,9 @@
             </ui:Target>
           </ui:UiElementExists.Target>
         </ui:UiElementExists>
-        <If Condition="[popupPrecaucao]" sap:VirtualizedContainerService.HintSize="388,323" sap2010:WorkflowViewState.IdRef="If_10">
+        <If Condition="[popupPrecaucao]" sap:VirtualizedContainerService.HintSize="526,1064.6666666666667" sap2010:WorkflowViewState.IdRef="If_10">
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="492,880" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence sap:VirtualizedContainerService.HintSize="492,880.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -833,7 +833,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <Sequence sap2010:Annotation.AnnotationText="Preenche os dados do filtro para a buasca do RI&#xA; a partir do Num da NF, Valor Total, Chave da NF e Tipo &#xA;" DisplayName="Preenche Filtro" sap:VirtualizedContainerService.HintSize="700,2173" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence sap2010:Annotation.AnnotationText="Preenche os dados do filtro para a buasca do RI&#xA; a partir do Num da NF, Valor Total, Chave da NF e Tipo &#xA;" DisplayName="Preenche Filtro" sap:VirtualizedContainerService.HintSize="700,2181.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -979,8 +979,8 @@
             </ui:TypeInto>
           </If.Else>
         </If>
-        <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_3" />
-        <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text  Chave da NF'" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[NFEE_ChaveNota+&quot;[k(tab)]&quot;]">
+        <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Delay_3" />
+        <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text  Chave da NF'" sap:VirtualizedContainerService.HintSize="388,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[NFEE_ChaveNota+&quot;[k(tab)]&quot;]">
           <ui:TypeInto.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="80bdda50-6b92-4657-a318-6ecdea799f63" InformativeScreenshot="00a314ac68349d7957e88497f019abf0" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Consulta de Operação Fiscal (*)' role='internal frame' /&gt;&lt;java idx='1' name='Chave da NF' role='text' /&gt;" WaitForReady="COMPLETE">
               <ui:Target.TimeoutMS>
@@ -990,19 +990,47 @@
           </ui:TypeInto.Target>
         </ui:TypeInto>
       </Sequence>
-      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="700,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-        <ui:Click.CursorPosition>
-          <ui:CursorPosition Position="Center">
-            <ui:CursorPosition.OffsetX>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetX>
-            <ui:CursorPosition.OffsetY>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetY>
-          </ui:CursorPosition>
-        </ui:Click.CursorPosition>
-        <ui:Click.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0526665b-41b2-43de-9a16-4b7e64a56f5a" InformativeScreenshot="d9b11b34b2b0a0d9fdbb47b9b28e5e38" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Consulta de Operação Fiscal (*)' role='internal frame' /&gt;&lt;java name='Localizar alt F' role='push button' /&gt;">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="700,360" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,280" sap2010:WorkflowViewState.IdRef="Sequence_54">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" sap2010:Annotation.AnnotationText="22/08/2024: comando comentado por ter sido substituído por hotkey para o clique no botão para tela com resolução menor." ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="388,169.33333333333334" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0526665b-41b2-43de-9a16-4b7e64a56f5a" InformativeScreenshot="d9b11b34b2b0a0d9fdbb47b9b28e5e38" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Consulta de Operação Fiscal (*)' role='internal frame' /&gt;&lt;java name='Localizar alt F' role='push button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="22/08/2024: comando adicionado para subsitituir o clique anterior, por conta de resolução de tela." DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="700,202" sap2010:WorkflowViewState.IdRef="SendHotkey_11" Key="enter" KeyModifiers="Ctrl" SpecialKey="True">
+        <ui:SendHotkey.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eecb60a7-7d05-4189-86d5-ae2e5a1a18d4" InformativeScreenshot="9cf62b9ce4935f6ae90308c6703d964d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRD' /&gt;&lt;java name='Consulta de Operação Fiscal*' role='internal frame' /&gt;&lt;java cls='DrawnPanel' idx='4' role='panel' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -1010,9 +1038,14 @@
               <InArgument x:TypeArguments="ui:WaitForReady" />
             </ui:Target.WaitForReady>
           </ui:Target>
-        </ui:Click.Target>
-      </ui:Click>
-      <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaOperacoesFiscais]" sap:VirtualizedContainerService.HintSize="700,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+        </ui:SendHotkey.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SendHotkey>
+      <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[TelaOperacoesFiscais]" sap:VirtualizedContainerService.HintSize="700,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
         <ui:UiElementExists.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d44559bc-2a27-4911-862d-c20c25dc47d4" InformativeScreenshot="ed09dc6bd40e0e40266970b08930138a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Fiscal Operations Entry (*)' role='internal frame' /&gt;" TimeoutMS="120000">
             <ui:Target.WaitForReady>
@@ -1021,7 +1054,7 @@
           </ui:Target>
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <If sap2010:Annotation.AnnotationText="Caso n'ao exista a tela de resultado da pesquisa verifica se o PopUp de pesquisa sem resultados apareceu" Condition="[TelaOperacoesFiscais]" sap:VirtualizedContainerService.HintSize="700,2680" sap2010:WorkflowViewState.IdRef="If_5">
+      <If sap2010:Annotation.AnnotationText="Caso n'ao exista a tela de resultado da pesquisa verifica se o PopUp de pesquisa sem resultados apareceu" Condition="[TelaOperacoesFiscais]" sap:VirtualizedContainerService.HintSize="700,2681.3333333333335" sap2010:WorkflowViewState.IdRef="If_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
