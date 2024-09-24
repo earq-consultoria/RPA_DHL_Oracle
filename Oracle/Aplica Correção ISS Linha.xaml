@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>770,1802</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>882.6666666666666,2389.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Aplica_Correção_ISS_Linha_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -33,6 +33,9 @@
       <x:String>System.Xml.Linq</x:String>
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -64,9 +67,11 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Aplica_Correção_ISS_Linha" sap:VirtualizedContainerService.HintSize="750,1742" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Aplica_Correção_ISS_Linha" sap:VirtualizedContainerService.HintSize="700.6666666666666,2324.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="valorIssInformado" />
       <Variable x:TypeArguments="x:String" Name="valorIssCalculado" />
@@ -77,20 +82,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap2010:Annotation.AnnotationText="Caso o valor do ISS seja igual a R$0,00 não é aplicada a lógica de correção&#xA;" Condition="[Convert.ToDouble(ValorIss.Replace(&quot;,&quot;,&quot;.&quot;)) &lt;&gt;0 And LancaISS=&quot;1&quot;]" DisplayName="Verifica se é necessário aplicar a correção" sap:VirtualizedContainerService.HintSize="708,1650" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="Caso o valor do ISS seja igual a R$0,00 não é aplicada a lógica de correção&#xA;" Condition="[Convert.ToDouble(ValorIss.Replace(&quot;,&quot;,&quot;.&quot;)) &lt;&gt;0 And LancaISS=&quot;1&quot;]" DisplayName="Verifica se é necessário aplicar a correção" sap:VirtualizedContainerService.HintSize="638.6666666666666,2214" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="563,1460" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="604.6666666666666,1903.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click tab ISS" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click tab ISS" sap:VirtualizedContainerService.HintSize="562.6666666666666,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -112,14 +117,14 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Sequence DisplayName="Captura o Valor Calculado e Informado do ISS" sap:VirtualizedContainerService.HintSize="521,344" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Captura o Valor Calculado e Informado do ISS" sap:VirtualizedContainerService.HintSize="562.6666666666666,365.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text ISS informado" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text ISS informado" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_4">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ccf84ef2-75ca-4043-8c55-ed9270d745d0" InformativeScreenshot="42dd350bc81aa9294eb131c5ec40a95d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java name='ISS' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -134,7 +139,7 @@
                 <OutArgument x:TypeArguments="x:String">[valorIssInformado]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text ISS calculado" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text ISS calculado" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_5">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a27558f2-6946-4acb-8e56-47ac127d95de" InformativeScreenshot="373676a8f42e16acd3a5936b1459c902" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java name='ISS' role='text' /&gt;&lt;nav up='1' /&gt;&lt;java idx='4' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -150,7 +155,7 @@
               </ui:GetValue.Value>
             </ui:GetValue>
           </Sequence>
-          <If sap2010:Annotation.AnnotationText="Caso o valor Calculado (valor ISS que foi calculado no lançamento das linhas do PO) for diferente do valor Informado (proviniente da capa) força com o valor do ISS da exportação.&#xA;" Condition="[Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))&lt;&gt;Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))]" DisplayName="Força o valor do ISS caso haja diferença no valor Informado x Calculado" sap:VirtualizedContainerService.HintSize="521,577" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="Caso o valor Calculado (valor ISS que foi calculado no lançamento das linhas do PO) for diferente do valor Informado (proviniente da capa) força com o valor do ISS da exportação.&#xA;" Condition="[Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))&lt;&gt;Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))]" DisplayName="Força o valor do ISS caso haja diferença no valor Informado x Calculado" sap:VirtualizedContainerService.HintSize="562.6666666666666,1169.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -159,13 +164,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence sap:VirtualizedContainerService.HintSize="528.6666666666666,842" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Valor ISS primeira Linha" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Valor ISS primeira Linha" sap:VirtualizedContainerService.HintSize="486.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_3">
                   <ui:GetValue.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8cdf6aae-d333-4403-9d8c-fe0a0acbdae0" InformativeScreenshot="4f8404c6d063f3bda3359b2422895fa8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java idx='1' name='Valor' role='text' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -180,7 +185,7 @@
                     <OutArgument x:TypeArguments="x:String">[valorIssPrimeiraLinha]</OutArgument>
                   </ui:GetValue.Value>
                 </ui:GetValue>
-                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Valor ISS corrigido" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[(Convert.ToDouble(valorIssPrimeiraLinha.Replace(&quot;,&quot;, &quot;.&quot;)) + (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))-Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))).ToString.Replace(&quot;.&quot;,&quot;,&quot;)+ &quot;[k(tab)]&quot;]">
+                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Valor ISS corrigido" sap:VirtualizedContainerService.HintSize="486.6666666666667,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[(Convert.ToDouble(valorIssPrimeiraLinha.Replace(&quot;,&quot;, &quot;.&quot;)) + (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))-Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))).ToString.Replace(&quot;.&quot;,&quot;,&quot;)+ &quot;[k(tab)]&quot;]">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9cee75ee-f4ae-40ba-a720-13daed2422cf" InformativeScreenshot="4f3bb8e86f7ebbc1f67b4db33734788e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java idx='1' name='Valor' role='text' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -192,18 +197,55 @@
                     </ui:Target>
                   </ui:TypeInto.Target>
                 </ui:TypeInto>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486.6666666666667,410" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,330" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" sap2010:Annotation.AnnotationText="24/09/2024: ajuste para atender casos em que a base do ISS é zero e está vindo prenchida automaticamente pelo Oracle." DisplayName="Type Into Valor Base Calculo ISS" sap:VirtualizedContainerService.HintSize="388,219.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[(Convert.ToDouble(valorIssPrimeiraLinha.Replace(&quot;,&quot;, &quot;.&quot;)) + (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))-Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))).ToString.Replace(&quot;.&quot;,&quot;,&quot;)+ &quot;[k(tab)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9cee75ee-f4ae-40ba-a720-13daed2422cf" InformativeScreenshot="4f3bb8e86f7ebbc1f67b4db33734788e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle*' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java name='Base de Cálculo' role='text' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:TypeInto>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
               </Sequence>
             </If.Then>
-          </If>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="521,221" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <If.Else>
+              <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="300,81.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[((Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))) &gt;= -1) And ((Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))) &lt;= 1) And (Not (0).Equals(Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))) And (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))&lt;&gt;0)]" DisplayName="Confere se a diferença é de no máxmo |R$1,00|" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_3">
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562.6666666666666,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[((Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))) &gt;= -1) And ((Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;))) &lt;= 1) And (Not (0).Equals(Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;)) - Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))) And (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))&lt;&gt;0)]" DisplayName="Confere se a diferença é de no máxmo |R$1,00|" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -211,13 +253,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,392" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Valor ISS primeira Linha" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Valor ISS primeira Linha" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_6">
                         <ui:GetValue.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae7826a1-112f-4fc8-b6d2-a895bd82d3d0" InformativeScreenshot="4f8404c6d063f3bda3359b2422895fa8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java idx='1' name='Valor' role='text' /&gt;">
                             <ui:Target.TimeoutMS>
@@ -232,7 +274,7 @@
                           <OutArgument x:TypeArguments="x:String">[valorIssPrimeiraLinha]</OutArgument>
                         </ui:GetValue.Value>
                       </ui:GetValue>
-                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Valor ISS corrigido" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[(Convert.ToDouble(valorIssPrimeiraLinha.Replace(&quot;,&quot;, &quot;.&quot;)) + (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))-Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))).ToString.Replace(&quot;.&quot;,&quot;,&quot;)+ &quot;[k(tab)]&quot;]">
+                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Valor ISS corrigido" sap:VirtualizedContainerService.HintSize="334,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[(Convert.ToDouble(valorIssPrimeiraLinha.Replace(&quot;,&quot;, &quot;.&quot;)) + (Convert.ToDouble(valorIssInformado.Replace(&quot;,&quot;,&quot;.&quot;))-Convert.ToDouble(valorIssCalculado.Replace(&quot;,&quot;,&quot;.&quot;)))).ToString.Replace(&quot;.&quot;,&quot;,&quot;)+ &quot;[k(tab)]&quot;]">
                         <ui:TypeInto.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b489c99-84b8-42cb-a444-5174a1c12987" InformativeScreenshot="4f3bb8e86f7ebbc1f67b4db33734788e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='' /&gt;&lt;java name='Invoice Lines*' role='internal frame' /&gt;&lt;java idx='1' name='Valor' role='text' /&gt;">
                             <ui:Target.TimeoutMS>
@@ -246,12 +288,30 @@
                       </ui:TypeInto>
                     </Sequence>
                   </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_8" />
+                  </If.Else>
                 </If>
               </Sequence>
             </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
         </Sequence>
       </If.Then>
+      <If.Else>
+        <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="300,81.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
     </If>
   </Sequence>
 </Activity>
