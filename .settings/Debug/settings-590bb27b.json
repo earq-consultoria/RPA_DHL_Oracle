@@ -32,5 +32,8 @@
   "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": "",
   "UiPath.OCR.Activities.CjkOCR.Endpoint": "",
   "UiPath.OCR.Activities.CjkOCR.ApiKey": "",
-  "UiPath.UiAutomation.Activities.GoogleCloudOCR.Region": "Global"
+  "UiPath.UiAutomation.Activities.GoogleCloudOCR.Region": "Global",
+  "UiPath.OCR.Activities.UiPathScreenOCR.UseAccents": "False",
+  "UiPath.OCR.Activities.ExtendedLanguagesOCR.Endpoint": "https://du.uipath.com/extended-ocr",
+  "UiPath.OCR.Activities.ExtendedLanguagesOCR.ApiKey": ""
 }
