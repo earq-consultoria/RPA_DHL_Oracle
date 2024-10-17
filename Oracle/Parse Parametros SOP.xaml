@@ -23,7 +23,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1812,5879.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1805.3333333333333,5933.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Parse_Parametros_SOP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -53,6 +53,8 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Excel</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -90,9 +92,10 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Realiza a leitura da planilha de parametros de acordo com a SOP do documento&#xA;" DisplayName="Parse_Parametros_SOP" sap:VirtualizedContainerService.HintSize="1792,5819.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Realiza a leitura da planilha de parametros de acordo com a SOP do documento&#xA;" DisplayName="Parse_Parametros_SOP" sap:VirtualizedContainerService.HintSize="1815.3333333333333,5868.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtParametros" />
       <Variable x:TypeArguments="x:Boolean" Name="flag" />
@@ -103,21 +106,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtParametros]" DisplayName="Read range settings" sap:VirtualizedContainerService.HintSize="1750,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[&quot;SOP &quot;+codigoSOP]" WorkbookPath="Data\Parametrização RPA.xlsx" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtParametros]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1750,5555.33333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtParametros]" DisplayName="Read range settings" sap:VirtualizedContainerService.HintSize="1753.3333333333333,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[&quot;SOP &quot;+codigoSOP]" WorkbookPath="Data\Parametrização RPA.xlsx" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtParametros]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1753.3333333333333,5584.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Definição dos Parametros" sap:VirtualizedContainerService.HintSize="1699.33333333333,5402.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Definição dos Parametros" sap:VirtualizedContainerService.HintSize="1719.3333333333333,5464.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RetencaoICMS&quot;]" DisplayName="Retenção ICMS" sap:VirtualizedContainerService.HintSize="1657.33333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RetencaoICMS&quot;]" DisplayName="Retenção ICMS" sap:VirtualizedContainerService.HintSize="1657.3333333333333,54" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -125,7 +128,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[retencaoICMS]</OutArgument>
                   </Assign.To>
@@ -135,7 +138,7 @@
                 </Assign>
               </If.Then>
             </If>
-            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaISS&quot;]" DisplayName="RPA Lanca ISS" sap:VirtualizedContainerService.HintSize="1657.33333333333,148" sap2010:WorkflowViewState.IdRef="If_2">
+            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaISS&quot;]" DisplayName="RPA Lanca ISS" sap:VirtualizedContainerService.HintSize="1657.3333333333333,149.33333333333334" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -144,7 +147,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca ISS" sap:VirtualizedContainerService.HintSize="833,448" sap2010:WorkflowViewState.IdRef="If_16">
+                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca ISS" sap:VirtualizedContainerService.HintSize="544,718" sap2010:WorkflowViewState.IdRef="If_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,7 +155,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[lancaISS]</OutArgument>
                       </Assign.To>
@@ -162,21 +165,24 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="526,300" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence sap:VirtualizedContainerService.HintSize="510,448.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[row(&quot;Valor Referência&quot;).ToString.Contains(&quot;;&quot;)]" DisplayName="RPA Lanca INSS" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_15">
+                      <If Condition="[row(&quot;Valor Referência&quot;).ToString.Contains(&quot;;&quot;)]" DisplayName="RPA Lanca INSS" sap:VirtualizedContainerService.HintSize="468,361.3333333333333" sap2010:WorkflowViewState.IdRef="If_15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_30" />
+                        </If.Then>
                         <If.Else>
-                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                          <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[lancaISS]</OutArgument>
                             </Assign.To>
@@ -191,7 +197,7 @@
                 </If>
               </If.Then>
             </If>
-            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaINSS&quot;]" DisplayName="RPA Lanca INSS" sap:VirtualizedContainerService.HintSize="1657.33333333333,148" sap2010:WorkflowViewState.IdRef="If_3">
+            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaINSS&quot;]" DisplayName="RPA Lanca INSS" sap:VirtualizedContainerService.HintSize="1657.3333333333333,149.33333333333334" sap2010:WorkflowViewState.IdRef="If_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -254,7 +260,7 @@
                 </Sequence>
               </If.Then>
             </If>
-            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaICMS&quot;]" DisplayName="RPA Lanca ICMS" sap:VirtualizedContainerService.HintSize="1657.33333333333,148" sap2010:WorkflowViewState.IdRef="If_4">
+            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaICMS&quot;]" DisplayName="RPA Lanca ICMS" sap:VirtualizedContainerService.HintSize="1657.3333333333333,149.33333333333334" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -263,7 +269,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca ICMS" sap:VirtualizedContainerService.HintSize="833,448" sap2010:WorkflowViewState.IdRef="If_18">
+                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca ICMS" sap:VirtualizedContainerService.HintSize="334,184" sap2010:WorkflowViewState.IdRef="If_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,7 +316,7 @@
                 </If>
               </If.Then>
             </If>
-            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaIRRF&quot;]" DisplayName="RPA Lanca IRRF" sap:VirtualizedContainerService.HintSize="1657.33333333333,148" sap2010:WorkflowViewState.IdRef="If_5">
+            <If sap2010:Annotation.AnnotationText="Verifica se no valor de referência possui mais de um campo de verificação (Nesse caso: SOP e ESPECIE)&#xA;" Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaIRRF&quot;]" DisplayName="RPA Lanca IRRF" sap:VirtualizedContainerService.HintSize="1657.3333333333333,149.33333333333334" sap2010:WorkflowViewState.IdRef="If_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -319,7 +325,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca IRRF" sap:VirtualizedContainerService.HintSize="833,448" sap2010:WorkflowViewState.IdRef="If_20">
+                <If Condition="[System.Text.RegularExpressions.Regex.Replace(row(&quot;Valor Referência&quot;).ToString,&quot;.+;\s?&quot;,&quot;&quot;)=System.Text.RegularExpressions.Regex.Replace(especie.ToUpper,&quot;[-_]&quot;,&quot;&quot;)]" DisplayName="RPA Lanca IRRF" sap:VirtualizedContainerService.HintSize="334,184" sap2010:WorkflowViewState.IdRef="If_20">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -366,14 +372,14 @@
                 </If>
               </If.Then>
             </If>
-            <Sequence DisplayName="Lanca Serie" sap:VirtualizedContainerService.HintSize="1657.33333333333,237.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence DisplayName="Lanca Serie" sap:VirtualizedContainerService.HintSize="1657.3333333333333,258.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaSerie&quot;]" DisplayName="LancaSerie" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_21">
+              <If Condition="[row(&quot;Agrupador&quot;).ToString.Trim=&quot;RPALancaSerie&quot;]" DisplayName="LancaSerie" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_21">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -381,13 +387,13 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence sap:VirtualizedContainerService.HintSize="476,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[LancaSerie]</OutArgument>
                       </Assign.To>
@@ -398,7 +404,7 @@
                   </Sequence>
                 </If.Then>
               </If>
-              <If Condition="[LancaSerie=&quot;1&quot;]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_22">
+              <If Condition="[LancaSerie=&quot;1&quot;]" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_22">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -417,7 +423,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <Sequence DisplayName="Zera ICMS" sap:VirtualizedContainerService.HintSize="1657.33333333333,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Zera ICMS" sap:VirtualizedContainerService.HintSize="1657.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
