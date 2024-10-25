@@ -16,7 +16,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>916,18417.333333333332</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>916,18888.666666666668</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LinhasNFEExRI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -108,7 +108,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LinhasNFEExRI" sap:VirtualizedContainerService.HintSize="926,18352.666666666668" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LinhasNFEExRI" sap:VirtualizedContainerService.HintSize="926,18824" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IList(x:Double)" Name="ListaNfe_Quantidade" />
       <Variable x:TypeArguments="scg:IList(x:Double)" Name="ListaNfe_PrecoUnitario" />
@@ -438,7 +438,7 @@
         </ui:Click.Target>
       </ui:Click>
     </Sequence>
-    <If Condition="[CodigoSOP.Contains(&quot;69&quot;)]" sap:VirtualizedContainerService.HintSize="864,14986" sap2010:WorkflowViewState.IdRef="If_38">
+    <If Condition="[CodigoSOP.Contains(&quot;69&quot;)]" sap:VirtualizedContainerService.HintSize="864,15457.333333333334" sap2010:WorkflowViewState.IdRef="If_38">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1114,7 +1114,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap2010:Annotation.AnnotationText="Iteração sem a associação automática NF-e PO &#xA;" DisplayName="Associoação com PO" sap:VirtualizedContainerService.HintSize="768,8059.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_87">
+        <Sequence sap2010:Annotation.AnnotationText="Iteração sem a associação automática NF-e PO &#xA;" DisplayName="Associoação com PO" sap:VirtualizedContainerService.HintSize="828,8530.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_87">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="TelaDeLinhasPO" />
           </Sequence.Variables>
@@ -1125,7 +1125,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Realiza a captura das linhas da NF-e calcula o total de itens e o valor total dos lançamentos&#xA;" DisplayName="Captura a quantidade de linhas" sap:VirtualizedContainerService.HintSize="726,2379.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_59">
+          <Sequence sap2010:Annotation.AnnotationText="Realiza a captura das linhas da NF-e calcula o total de itens e o valor total dos lançamentos&#xA;" DisplayName="Captura a quantidade de linhas" sap:VirtualizedContainerService.HintSize="786,2379.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_59">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:GenericValue" Name="LinhasNFe" />
               <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="Linhas" />
@@ -1640,7 +1640,7 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <Sequence sap2010:Annotation.AnnotationText="Seleciona a Linha para a iteração atual da NF-e e realiza o preenchimento&#xA;" DisplayName="Seleciona Linha Nfe" sap:VirtualizedContainerService.HintSize="726,5350.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_97">
+          <Sequence sap2010:Annotation.AnnotationText="Seleciona a Linha para a iteração atual da NF-e e realiza o preenchimento&#xA;" DisplayName="Seleciona Linha Nfe" sap:VirtualizedContainerService.HintSize="786,5822" sap2010:WorkflowViewState.IdRef="Sequence_97">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:GenericValue" Name="LinhasNFe" />
               <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="Linhas" />
@@ -1659,7 +1659,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="idx_0 dos dados da tabela de NFe" sap:VirtualizedContainerService.HintSize="664,254" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+            <ui:MultipleAssign DisplayName="idx_0 dos dados da tabela de NFe" sap:VirtualizedContainerService.HintSize="724,254" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
@@ -1735,13 +1735,13 @@
                 <InArgument x:TypeArguments="scg:IList(x:String)">[New System.Collections.Generic.List(Of String)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[counter]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="664,4433.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[ListaNfe_Descricao]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[counter]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="724,4904" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[ListaNfe_Descricao]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="item_NfeDesc" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Leitura da Tabela NF-e" sap:VirtualizedContainerService.HintSize="630,4243.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                  <Sequence DisplayName="Leitura da Tabela NF-e" sap:VirtualizedContainerService.HintSize="690,4714" sap2010:WorkflowViewState.IdRef="Sequence_95">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="PrecoUnitario" />
                       <Variable x:TypeArguments="x:String" Name="Quantidade" />
@@ -1753,7 +1753,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text  Descrição'" sap:VirtualizedContainerService.HintSize="588,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text  Descrição'" sap:VirtualizedContainerService.HintSize="648,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_7">
                       <ui:GetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5d6abcf2-d055-43ba-92c0-082caed4df5e" InformativeScreenshot="d1a60eb760f7b97c747110b9ba869ac0" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java idx='{{idxTabelaNFe_Desc}}' name='Descrição' role='text' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -1774,7 +1774,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:GetValue>
-                    <If Condition="[Descricao.Trim=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="588,436.6666666666667" sap2010:WorkflowViewState.IdRef="If_42">
+                    <If Condition="[Descricao.Trim=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="648,436.6666666666667" sap2010:WorkflowViewState.IdRef="If_42">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4857,7 +4857,7 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <Sequence sap:VirtualizedContainerService.HintSize="588,2120" sap2010:WorkflowViewState.IdRef="Sequence_187">
+                    <Sequence sap:VirtualizedContainerService.HintSize="648,2586.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_187">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="nomeProjeto" />
                         <Variable x:TypeArguments="x:Boolean" Name="telaDeProjeto" />
@@ -4916,9 +4916,9 @@
                           </ui:Target>
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <If Condition="[telaDeProjeto]" sap:VirtualizedContainerService.HintSize="526,1567.3333333333333" sap2010:WorkflowViewState.IdRef="If_80">
+                      <If Condition="[telaDeProjeto]" sap:VirtualizedContainerService.HintSize="586,2034" sap2010:WorkflowViewState.IdRef="If_80">
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="492,1383.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_188">
+                          <Sequence sap:VirtualizedContainerService.HintSize="552,1850" sap2010:WorkflowViewState.IdRef="Sequence_188">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:Boolean" Name="telaDeProjetoContinuaAberta" />
                               <Variable x:TypeArguments="x:Boolean" Name="telaDeSalvar" />
@@ -4940,7 +4940,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:UiElementExists DisplayName="Element Exists 'internal frame  Projetos'" Exists="[telaDeProjetoContinuaAberta]" sap:VirtualizedContainerService.HintSize="450,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_26">
+                            <ui:UiElementExists DisplayName="Element Exists 'internal frame  Projetos'" Exists="[telaDeProjetoContinuaAberta]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_26">
                               <ui:UiElementExists.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4549d4eb-f0bf-4f7b-8af9-2d307363dfdd" InformativeScreenshot="c48f8a24df724bb9c8294bc1c4e91081" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Projetos' role='internal frame' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -4952,22 +4952,53 @@
                                 </ui:Target>
                               </ui:UiElementExists.Target>
                             </ui:UiElementExists>
-                            <If Condition="[telaDeProjetoContinuaAberta]" sap:VirtualizedContainerService.HintSize="450,362.6666666666667" sap2010:WorkflowViewState.IdRef="If_81">
+                            <If Condition="[telaDeProjetoContinuaAberta]" sap:VirtualizedContainerService.HintSize="510,828.6666666666666" sap2010:WorkflowViewState.IdRef="If_81">
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="376,178.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_190">
+                                <Sequence sap:VirtualizedContainerService.HintSize="476,644.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_190">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="mensagem" />
+                                  </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Throw Exception="[new SystemException(&quot;Projeto não identificado&quot;)]" sap:VirtualizedContainerService.HintSize="334,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_11" />
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_111">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[mensagem]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">Erro na etapa de digitar projeto na tela de NFEE</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Erro na etapa de digitar projeto na tela de NFEE&quot;]" />
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="PastaOrigem">
+                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaOrigem" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="DocumentoId">
+                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="DocumentoId" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="RI">
+                                        <Literal x:TypeArguments="x:String" Value="" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">
+                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ProcessoExportacaoId" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="Mensagem">
+                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Mensagem" />
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Throw Exception="[new BusinessRuleException(mensagem)]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_11" />
                                 </Sequence>
                               </If.Then>
                               <If.Else>
                                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_191" />
                               </If.Else>
                             </If>
-                            <Sequence DisplayName="Tela de salvamento" sap:VirtualizedContainerService.HintSize="450,548.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_192">
+                            <Sequence DisplayName="Tela de salvamento" sap:VirtualizedContainerService.HintSize="510,549.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_192">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:Boolean" Name="TelaSalvar" />
                               </Sequence.Variables>
@@ -4986,7 +5017,7 @@
                                   </ui:Target>
                                 </ui:UiElementExists.Target>
                               </ui:UiElementExists>
-                              <If Condition="[TelaSalvar]" sap:VirtualizedContainerService.HintSize="388,290.6666666666667" sap2010:WorkflowViewState.IdRef="If_82">
+                              <If Condition="[TelaSalvar]" sap:VirtualizedContainerService.HintSize="388,291.3333333333333" sap2010:WorkflowViewState.IdRef="If_82">
                                 <If.Then>
                                   <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  SIM ALT N'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_46" KeyModifiers="None" MouseButton="BTN_LEFT">
                                     <ui:Click.CursorPosition>
@@ -5016,7 +5047,7 @@
                         </If.Else>
                       </If>
                     </Sequence>
-                    <If Condition="[idxTabelaNFe_Desc=idxTabelaNFe_Limite]" sap:VirtualizedContainerService.HintSize="588,783.3333333333334" sap2010:WorkflowViewState.IdRef="If_43">
+                    <If Condition="[idxTabelaNFe_Desc=idxTabelaNFe_Limite]" sap:VirtualizedContainerService.HintSize="648,786.6666666666666" sap2010:WorkflowViewState.IdRef="If_43">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -5024,7 +5055,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="334,155.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_10" Key="down" KeyModifiers="None" SpecialKey="True">
+                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="334,156.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_10" Key="down" KeyModifiers="None" SpecialKey="True">
                           <ui:SendHotkey.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3ef3b0c3-fdd8-4070-a61b-2b7a8eafd4b0" InformativeScreenshot="0c0a181ebc5af8e760224a080c4abcee" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java idx='{{idxTabelaNFe_Limite}}' name='Código' role='text' /&gt;">
                               <ui:Target.TimeoutMS>
@@ -5038,13 +5069,13 @@
                         </ui:SendHotkey>
                       </If.Then>
                       <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="464.6666666666667,444.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_94">
+                        <Sequence sap:VirtualizedContainerService.HintSize="464.6666666666667,446" sap2010:WorkflowViewState.IdRef="Sequence_94">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="2000" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="422.6666666666667,155.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_34" Key="down" KeyModifiers="None" SpecialKey="True">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="2000" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="422.6666666666667,156.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_34" Key="down" KeyModifiers="None" SpecialKey="True">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f005abbc-34f5-449c-b8d6-ecff3f6bbcc1" InformativeScreenshot="0c0a181ebc5af8e760224a080c4abcee" Selector="[string.Format(&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java idx='{0}' name='Código' role='text' /&gt;&quot;, idxTabelaNFe_Desc)]">
                                 <ui:Target.TimeoutMS>
@@ -5089,7 +5120,7 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <Sequence DisplayName="Tela de salvamento" sap:VirtualizedContainerService.HintSize="588,548.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_99">
+                    <Sequence DisplayName="Tela de salvamento" sap:VirtualizedContainerService.HintSize="648,549.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_99">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="TelaSalvar" />
                       </Sequence.Variables>
@@ -5108,7 +5139,7 @@
                           </ui:Target>
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <If Condition="[TelaSalvar]" sap:VirtualizedContainerService.HintSize="388,290.6666666666667" sap2010:WorkflowViewState.IdRef="If_45">
+                      <If Condition="[TelaSalvar]" sap:VirtualizedContainerService.HintSize="388,291.3333333333333" sap2010:WorkflowViewState.IdRef="If_45">
                         <If.Then>
                           <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  SIM ALT N'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
@@ -5141,9 +5172,9 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="664,53.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="724,54" sap2010:WorkflowViewState.IdRef="CommentOut_5">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="546,224" sap2010:WorkflowViewState.IdRef="Sequence_98">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_98">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
