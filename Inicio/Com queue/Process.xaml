@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>974.6666666666666,8498</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>974.6666666666666,14834.666666666666</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="12">
@@ -65,7 +65,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Processes all transactions, inputs data to Oracle and requests for more transactions to process." DisplayName="Process Transactions" sap:VirtualizedContainerService.HintSize="984.6666666666665,21555.333333333332" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Processes all transactions, inputs data to Oracle and requests for more transactions to process." DisplayName="Process Transactions" sap:VirtualizedContainerService.HintSize="984.6666666666666,14770" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="erro" />
       <Variable x:TypeArguments="x:String" Name="mensagem" />
@@ -96,7 +96,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Transactions for each" sap:VirtualizedContainerService.HintSize="922.6666666666666,21414" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Transactions for each" sap:VirtualizedContainerService.HintSize="922.6666666666666,14628.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ContaContabil" />
         <Variable x:TypeArguments="x:String" Name="CnpjFornecedor" />
@@ -1248,7 +1248,7 @@
           </Catch>
         </TryCatch.Catches>
       </TryCatch>
-      <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TipoExecucao]" sap:VirtualizedContainerService.HintSize="860.6666666666666,20202" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TipoExecucao]" sap:VirtualizedContainerService.HintSize="780.6666666666666,13416.666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
           <Sequence DisplayName="DEFAULT" sap:VirtualizedContainerService.HintSize="742,13206.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_101">
             <sap:WorkflowViewStateService.ViewState>
@@ -3294,14 +3294,14 @@
             </If.Then>
           </If>
         </Sequence>
-        <Sequence x:Key="MERCADORIA" DisplayName="MERCADORIA" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_100">
+        <Sequence x:Key="MERCADORIA" DisplayName="MERCADORIA" sap:VirtualizedContainerService.HintSize="624.6666666666666,2712" sap2010:WorkflowViewState.IdRef="Sequence_100">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Realiza a busca pela NF relacionada com o pedido em processamento e se encontrada realiza o processo de conferência dos status da entrada pelo XML:&#xA;&#xA;-Se a entrada co XML foi feita de forma completa passa para a parte de Envio para RI&#xA;&#xA;-Se a entrada do XML foi feita de forma incompleta realiza o preenchimento das linhas da NFEE&#xA;&#xA;-Após o envio para RI verifica qual o status final para confenririr se caiu no fluxo de lançamento manual, se sim suspende o chamado." DisplayName="Entrada da operação NFEE x RI" sap:VirtualizedContainerService.HintSize="561.6,287.2" sap2010:WorkflowViewState.IdRef="Sequence_121">
+          <Sequence sap2010:Annotation.AnnotationText="Realiza a busca pela NF relacionada com o pedido em processamento e se encontrada realiza o processo de conferência dos status da entrada pelo XML:&#xA;&#xA;-Se a entrada co XML foi feita de forma completa passa para a parte de Envio para RI&#xA;&#xA;-Se a entrada do XML foi feita de forma incompleta realiza o preenchimento das linhas da NFEE&#xA;&#xA;-Após o envio para RI verifica qual o status final para confenririr se caiu no fluxo de lançamento manual, se sim suspende o chamado." DisplayName="Entrada da operação NFEE x RI" sap:VirtualizedContainerService.HintSize="562.6666666666666,296.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_121">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -3535,7 +3535,7 @@
               </If.Else>
             </If>
           </Sequence>
-          <Sequence sap2010:Annotation.AnnotationText="Seleciona a Filial" DisplayName="Altera a Organização" sap:VirtualizedContainerService.HintSize="561.6,114.4" sap2010:WorkflowViewState.IdRef="Sequence_128">
+          <Sequence sap2010:Annotation.AnnotationText="Seleciona a Filial" DisplayName="Altera a Organização" sap:VirtualizedContainerService.HintSize="562.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_128">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -4435,7 +4435,7 @@
               <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_180" />
             </If.Else>
           </If>
-          <If sap2010:Annotation.AnnotationText="Caso ocorra algum erro após que tenha sido gerado um RI, é criado ou é inserido a uma planilha o número do RI, tomador e filial, para que o processo de ApagarIncompleto posso consumir e realizar a limpeza dos RI's incompletos no Oracle." Condition="[erro]" DisplayName="Criação da planilha com RI's incompletos" sap:VirtualizedContainerService.HintSize="561.6,1223.2" sap2010:WorkflowViewState.IdRef="If_129">
+          <If sap2010:Annotation.AnnotationText="Caso ocorra algum erro após que tenha sido gerado um RI, é criado ou é inserido a uma planilha o número do RI, tomador e filial, para que o processo de ApagarIncompleto posso consumir e realizar a limpeza dos RI's incompletos no Oracle." Condition="[erro]" DisplayName="Criação da planilha com RI's incompletos" sap:VirtualizedContainerService.HintSize="562.6666666666666,1111.3333333333333" sap2010:WorkflowViewState.IdRef="If_129">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -4444,7 +4444,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="Lança a exceção para marcar a transação como erro e adiciona o RI atual na planilha de RI Incompletos, para manter um histórico de erros no lançamento, e adiciona o RI atual na fila do ApagarIncompleto." DisplayName="Lançar exceção" sap:VirtualizedContainerService.HintSize="528,980" sap2010:WorkflowViewState.IdRef="Sequence_141">
+              <Sequence sap2010:Annotation.AnnotationText="Lança a exceção para marcar a transação como erro e adiciona o RI atual na planilha de RI Incompletos, para manter um histórico de erros no lançamento, e adiciona o RI atual na fila do ApagarIncompleto." DisplayName="Lançar exceção" sap:VirtualizedContainerService.HintSize="528.6666666666666,865.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_141">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4452,15 +4452,15 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,303.2" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486.6666666666667,306" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,224.8" sap2010:WorkflowViewState.IdRef="Sequence_144">
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_144">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_196" UnSafe="False" WorkflowFileName="Oracle\Criar Planilha de RI Incompleto.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_196" UnSafe="False" WorkflowFileName="Oracle\Criar Planilha de RI Incompleto.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="RI">[RI]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="CodigoTomador">[CodigoTomador]</InArgument>
@@ -4472,14 +4472,14 @@
                     </Sequence>
                   </ui:CommentOut.Body>
                 </ui:CommentOut>
-                <If sap2010:Annotation.AnnotationText="Teoricamente não é pra acontecer porque colocamos a mensagem nos erros." Condition="[String.IsNullOrEmpty(mensagem)]" DisplayName="Se mensagem estiver vazia" sap:VirtualizedContainerService.HintSize="436,418" sap2010:WorkflowViewState.IdRef="If_128">
+                <If sap2010:Annotation.AnnotationText="Teoricamente não é pra acontecer porque colocamos a mensagem nos erros." Condition="[String.IsNullOrEmpty(mensagem)]" DisplayName="Se mensagem estiver vazia" sap:VirtualizedContainerService.HintSize="486.6666666666667,300" sap2010:WorkflowViewState.IdRef="If_128">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_153">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_153">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[mensagem]</OutArgument>
                       </Assign.To>
@@ -4488,8 +4488,11 @@
                       </Assign.Value>
                     </Assign>
                   </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_189" />
+                  </If.Else>
                 </If>
-                <Throw Exception="[new BusinessRuleException(mensagem)]" sap:VirtualizedContainerService.HintSize="436,90" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                <Throw Exception="[new BusinessRuleException(mensagem)]" sap:VirtualizedContainerService.HintSize="486.6666666666667,92" sap2010:WorkflowViewState.IdRef="Throw_5" />
               </Sequence>
             </If.Then>
             <If.Else>
