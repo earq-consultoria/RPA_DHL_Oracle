@@ -197,7 +197,7 @@
               </Assign.Value>
             </Assign>
             <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot;/c Title TimerDeMercadoria &amp;&amp; timeout /t &quot; + timerValue.Trim + &quot; &amp;&amp; taskkill /F /T /FI &quot;&quot;USERNAME eq %USERNAME%&quot;&quot; /IM jp2launcher.exe&quot;]" ContinueOnError="True" DisplayName="Start Process" FileName="cmd.exe" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer para mercadoria iniciado em: &quot; + timerValue + &quot; segundos&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer para mercadoria iniciado: prazo para lançamento de linhas é de &quot; + timerValue + &quot; segundos&quot;]" />
           </Sequence>
         </If.Then>
         <If.Else>
@@ -1180,11 +1180,11 @@
                               <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os docs</InArgument>
+                              <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os documentos.</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_14" />
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[MensagemErro]" />
+                          <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_14" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -1247,9 +1247,10 @@
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="608.6666666666666,1272.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isPrecoDivergente]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="608.6666666666666,1272.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
               <ui:InterruptibleDoWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,1103.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_219">
                   <sap:WorkflowViewStateService.ViewState>
@@ -1303,11 +1304,11 @@
                             <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os docs</InArgument>
+                            <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os documentos.</InArgument>
                           </Assign.Value>
                         </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[MensagemErro + &quot;.&quot;]" />
                         <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_13" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[MensagemErro]" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
@@ -1316,9 +1317,6 @@
                   </If>
                 </Sequence>
               </ui:InterruptibleDoWhile.Body>
-              <ui:InterruptibleDoWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="isPrecoDivergente" />
-              </ui:InterruptibleDoWhile.Condition>
             </ui:InterruptibleDoWhile>
           </Sequence>
         </Sequence>
@@ -5911,13 +5909,13 @@
       </ui:SendHotkey>
       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,53.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,267.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_51">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,266" sap2010:WorkflowViewState.IdRef="Sequence_51">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="388,156.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="f4" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="388,155.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="f4" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6ebe17c4-1dad-4367-a121-dbcd465d3ce1" InformativeScreenshot="8105ad4d9116d542aa373add4e496f75" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java role='panel' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -5963,7 +5961,7 @@
           </ui:Target>
         </ui:CloseApplication.Target>
       </ui:CloseApplication>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer de fechado&quot;]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer para mercadoria fechado: lançamento de linhas concluido&quot;]" />
     </Sequence>
   </Sequence>
 </Activity>
