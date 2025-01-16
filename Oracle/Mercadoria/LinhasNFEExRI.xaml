@@ -5949,9 +5949,9 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CloseApplication ContinueOnError="True" DisplayName="Close Application 'cmd.exe  Command Prompt'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+      <ui:CloseApplication ContinueOnError="True" DisplayName="Close Application 'cmd.exe  Command Prompt'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
         <ui:CloseApplication.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d9be1be7-2395-47c8-89e8-2ab0c247270f" InformativeScreenshot="3cc74a41c0bbeec502376dad7ddaa8cd" Selector="&lt;wnd app='cmd.exe' title='TimerDeMercadoria' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d9be1be7-2395-47c8-89e8-2ab0c247270f" InformativeScreenshot="62174f5d2fd599ab74015d322460e77d" Selector="&lt;wnd app='cmd.exe' title='TimerDeMercadoria ' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
