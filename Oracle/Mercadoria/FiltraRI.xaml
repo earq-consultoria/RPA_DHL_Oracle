@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>824,3723</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>881.3333333333334,4102</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FiltraRI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -42,6 +42,7 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -77,15 +78,18 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FiltraRI" sap:VirtualizedContainerService.HintSize="834,3618" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FiltraRI" sap:VirtualizedContainerService.HintSize="834,4037.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Entrada_de_operacoes_fiscais" sap:VirtualizedContainerService.HintSize="772,3507" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Entrada_de_operacoes_fiscais" sap:VirtualizedContainerService.HintSize="772,3926.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="indice" />
         <Variable x:TypeArguments="x:Boolean" Name="noPrimeiroRegistro" />
@@ -98,7 +102,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Alterar organização workflow" sap:VirtualizedContainerService.HintSize="710,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Oracle\Alterar organização.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Alterar organização workflow" sap:VirtualizedContainerService.HintSize="710,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Oracle\Alterar organização.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="CodigoFilial">[CodigoFilialOracle]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[Config]</InArgument>
@@ -106,7 +110,7 @@
           <InArgument x:TypeArguments="x:String" x:Key="CodigoFilialOracle_EntradaOpFiscais">[CodigoFilialOracle_EntradaOpFiscais]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="710,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="710,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:Click.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -128,8 +132,109 @@
           </ui:Target>
         </ui:Click.Target>
       </ui:Click>
-      <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="710,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
-      <ui:Click DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DelayBefore="[CInt(Config(&quot;DelayShort&quot;).ToString)]" DisplayName="Click Localizar" sap:VirtualizedContainerService.HintSize="710,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="710,370.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,290.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap2010:Annotation.AnnotationText="[FIX] 16/01/2025: Verifica se a tela de NFEExRI está aberta para poder fazer a consulta. &#xA;&#xA;Tratativa para problema de navegação. Quando o RPA chegava nessa parte, a tela de Associação estava fechada." sap:VirtualizedContainerService.HintSize="450,180" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="telaDeAssociacao" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:UiElementExists DisplayName="Element Exists 'panel'" Exists="[telaDeAssociacao]" sap:VirtualizedContainerService.HintSize="562.6666666666666,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d0aa4e7-0504-4d8a-a02a-1bca6e6c394c" InformativeScreenshot="a5c093f456f179f370c0c5852e3f7a18" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java cls='DrawnPanel' idx='5' role='panel' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:UiElementExists.Target>
+              </ui:UiElementExists>
+              <If Condition="[Not telaDeAssociacao]" sap:VirtualizedContainerService.HintSize="562.6666666666666,992" sap2010:WorkflowViewState.IdRef="If_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="528.6666666666666,808" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[Not telaDeAssociacao]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="486.6666666666667,720.6666666666666" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                      <ui:InterruptibleDoWhile.Body>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,550" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Erro ao abrir de tela de Associação&quot;]" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" ContinueOnError="True" DisplayName="Abre a tela de Associação" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="794b9c79-5e90-418a-9375-930d2e3711b6" InformativeScreenshot="579e4369a368cd46ba31bfe76525ff8e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Navegador*' role='internal frame' /&gt;&lt;java name='Funções' role='page tab' /&gt;&lt;java name='Lista das Dez Principais' role='list' /&gt;&lt;java name='*NFEE x RI' role='label' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:UiElementExists DisplayName="Element Exists 'panel'" Exists="[telaDeAssociacao]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d0aa4e7-0504-4d8a-a02a-1bca6e6c394c" InformativeScreenshot="a5c093f456f179f370c0c5852e3f7a18" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Associação NFe x RI*' role='internal frame' /&gt;&lt;java cls='DrawnPanel' idx='5' role='panel' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </Sequence>
+                      </ui:InterruptibleDoWhile.Body>
+                    </ui:InterruptibleDoWhile>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_11" />
+                </If.Else>
+              </If>
+            </Sequence>
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="710,92" sap2010:WorkflowViewState.IdRef="Delay_1" />
+      <ui:Click DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DelayBefore="[CInt(Config(&quot;DelayShort&quot;).ToString)]" DisplayName="Click Localizar" sap:VirtualizedContainerService.HintSize="710,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:Click.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -156,7 +261,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:Click>
-      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Localizar &quot;De:&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="710,155" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[RI]">
+      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Localizar &quot;De:&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="710,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[RI]">
         <ui:TypeInto.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e49fe2c0-fa9a-4b36-9584-0126bf8881eb" InformativeScreenshot="aefe9c795939a55cf5a3e9a0360f3a6e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Localizar Operações Fiscais' role='internal frame' /&gt;&lt;java name='Número - De' role='text' /&gt;">
             <ui:Target.TimeoutMS>
@@ -168,7 +273,7 @@
           </ui:Target>
         </ui:TypeInto.Target>
       </ui:TypeInto>
-      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Localizar &quot;Até:&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="710,155" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[RI]">
+      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into Localizar &quot;Até:&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="710,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[RI]">
         <ui:TypeInto.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59b244a8-334f-4e13-98dd-b915960758cc" InformativeScreenshot="aefe9c795939a55cf5a3e9a0360f3a6e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Localizar Operações Fiscais' role='internal frame' /&gt;&lt;java name='Até' role='text' /&gt;">
             <ui:Target.TimeoutMS>
@@ -180,7 +285,7 @@
           </ui:Target>
         </ui:TypeInto.Target>
       </ui:TypeInto>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="710,297" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="710,298" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
@@ -188,7 +293,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Localizar'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Localizar'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>

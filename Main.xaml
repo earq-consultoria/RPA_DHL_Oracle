@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>883.3333333333334,1557.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>881.3333333333334,1517.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -107,7 +107,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_57">
+          <Assign sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_60">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[TipoProcesso]</OutArgument>
             </Assign.To>
@@ -131,7 +131,7 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message - Inicialização" sap:VirtualizedContainerService.HintSize="532.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Projeto iniciando em modo: &quot; + config(&quot;Mode&quot;).ToString]" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TipoProcesso]" sap:VirtualizedContainerService.HintSize="532.6666666666666,170" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TipoProcesso]" sap:VirtualizedContainerService.HintSize="496.6666666666667,170" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
           <Assign.To>
@@ -165,7 +165,7 @@
         </Assign.Value>
       </Assign>
     </Switch>
-    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="532.6666666666666,414.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="496.6666666666667,414.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Main sem queue workflow" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Inicio\Sem queue\Main sem queue.xaml">
           <ui:InvokeWorkflowFile.Arguments>
