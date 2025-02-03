@@ -49,7 +49,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>881.3333333333334,6062.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>786.6666666666666,6062.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Entrada_da_NF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -131,7 +131,7 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Entrada_da_NF" sap:VirtualizedContainerService.HintSize="638.6666666666666,5998" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Entrada_da_NF" sap:VirtualizedContainerService.HintSize="1922.6666666666667,12376" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="dataFaturamentoEstaCorreta" />
       <Variable x:TypeArguments="x:Int32" Name="dropdownPosition" />
@@ -147,9 +147,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;INICIO: Preenchimento dados NF capa.&quot;]" />
-    <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="576.6666666666666,92" sap2010:WorkflowViewState.IdRef="Delay_3" />
-    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DelayBefore="[Cint(Config(&quot;DelayShort&quot;).ToString)]" DelayBetweenKeys="50" DisplayName="Type Into 'text Tipo'" sap:VirtualizedContainerService.HintSize="576.6666666666666,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[CodigoSop+ &quot;[k(tab)]&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1860.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;INICIO: Preenchimento dados NF capa.&quot;]" />
+    <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="1860.6666666666667,92" sap2010:WorkflowViewState.IdRef="Delay_3" />
+    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DelayBefore="[Cint(Config(&quot;DelayShort&quot;).ToString)]" DelayBetweenKeys="50" DisplayName="Type Into 'text Tipo'" sap:VirtualizedContainerService.HintSize="1860.6666666666667,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[CodigoSop+ &quot;[k(tab)]&quot;]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="af160b9f-4e5e-466f-bc9a-789e4bf4aa3b" InformativeScreenshot="6d90dc9e9d8d617bfcb9e4889facec7b" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='Tipo de Nota RequiredList of Values' role='text' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
@@ -158,7 +158,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <Sequence sap2010:Annotation.AnnotationText="Preenchimento do ID contribuinte (CNPJ Tomador). Caso o CNPJ seja da secretaria de Brasilia preenche o CNPJ contatenando uma zero a frente. Caso o preenchimento seja o caso do GymPass realiza a busca do ID Contribuinte no grid que é aberto&#xA;&#xA;Caso seja SOP 32/33/34 SEM PO faz a validação se o CNPJ do fornecedor é 02836056000106 caso seja verifica se abriu uma tela de busca de fornecedor&#xA;" DisplayName="Preenchimento ID Contribuinte" sap:VirtualizedContainerService.HintSize="576.6666666666666,230" sap2010:WorkflowViewState.IdRef="Sequence_21">
+    <Sequence sap2010:Annotation.AnnotationText="Preenchimento do ID contribuinte (CNPJ Tomador). Caso o CNPJ seja da secretaria de Brasilia preenche o CNPJ contatenando uma zero a frente. Caso o preenchimento seja o caso do GymPass realiza a busca do ID Contribuinte no grid que é aberto&#xA;&#xA;Caso seja SOP 32/33/34 SEM PO faz a validação se o CNPJ do fornecedor é 02836056000106 caso seja verifica se abriu uma tela de busca de fornecedor&#xA;" DisplayName="Preenchimento ID Contribuinte" sap:VirtualizedContainerService.HintSize="1860.6666666666667,230" sap2010:WorkflowViewState.IdRef="Sequence_21">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1063,7 +1063,7 @@
         </If>
       </Sequence>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da Especie, Serie, Número, Data de Emissão, Valor Total&#xA;&#xA;" DisplayName="Preenchimento Geral" sap:VirtualizedContainerService.HintSize="576.6666666666666,146.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da Especie, Serie, Número, Data de Emissão, Valor Total&#xA;&#xA;" DisplayName="Preenchimento Geral" sap:VirtualizedContainerService.HintSize="1860.6666666666667,146.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="SelecaoSerie" />
         <Variable x:TypeArguments="x:Boolean" Name="notaFiscalRevertida" />
@@ -1811,7 +1811,7 @@
         </ui:TypeInto>
       </Sequence>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Realiza o preenchimento do campo KG dependendo da parametrização da SOP&#xA;&#xA;" DisplayName="Preenchimento KG" sap:VirtualizedContainerService.HintSize="576.6666666666666,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Realiza o preenchimento do campo KG dependendo da parametrização da SOP&#xA;&#xA;" DisplayName="Preenchimento KG" sap:VirtualizedContainerService.HintSize="1860.6666666666667,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -2727,7 +2727,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da aba de ICMS.&#xA;Dependendo da paramatrização por SOP, Será lançado como Não Reter ou Normal, zerando os valores de base e valor total.&#xA;" DisplayName="Preenche ICMS" sap:VirtualizedContainerService.HintSize="576.6666666666666,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_83">
+    <Sequence sap2010:Annotation.AnnotationText="Preenchimento da aba de ICMS.&#xA;Dependendo da paramatrização por SOP, Será lançado como Não Reter ou Normal, zerando os valores de base e valor total.&#xA;" DisplayName="Preenche ICMS" sap:VirtualizedContainerService.HintSize="1860.6666666666667,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_83">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -3090,7 +3090,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Verifica se a SOP tem lançamento de ISS&#xA;" DisplayName="Preenche ISS" sap:VirtualizedContainerService.HintSize="576.6666666666666,2738.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_98">
+    <Sequence sap2010:Annotation.AnnotationText="Verifica se a SOP tem lançamento de ISS&#xA;" DisplayName="Preenche ISS" sap:VirtualizedContainerService.HintSize="1860.6666666666667,3452" sap2010:WorkflowViewState.IdRef="Sequence_98">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3098,7 +3098,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[LancaISS=&quot;1&quot;]" DisplayName="Verifica se para a SOP será preenchida a aba de ISS" sap:VirtualizedContainerService.HintSize="514.6666666666666,2582.6666666666665" sap2010:WorkflowViewState.IdRef="If_17">
+      <If Condition="[LancaISS=&quot;1&quot;]" DisplayName="Verifica se para a SOP será preenchida a aba de ISS" sap:VirtualizedContainerService.HintSize="562,3296" sap2010:WorkflowViewState.IdRef="If_17">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3107,14 +3107,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Preenche iss" sap:VirtualizedContainerService.HintSize="480.6666666666667,2398.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Preenche iss" sap:VirtualizedContainerService.HintSize="528,3112" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  ISS'" sap:VirtualizedContainerService.HintSize="438.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  ISS'" sap:VirtualizedContainerService.HintSize="486,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -3136,7 +3136,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <If sap2010:Annotation.AnnotationText="[FIX] 29/01/2025: Tratativa para desbloquear campo da capa não pode ser aplicado para CTE da sop 59" Condition="[Not CodigoSop.Contains(&quot;59&quot;) = true]" sap:VirtualizedContainerService.HintSize="438.6666666666667,502.6666666666667" sap2010:WorkflowViewState.IdRef="If_125">
+            <If sap2010:Annotation.AnnotationText="[FIX] 29/01/2025: Tratativa para desbloquear campo da capa não pode ser aplicado para CTE da sop 59" Condition="[Not CodigoSop.Contains(&quot;59&quot;) = true]" sap:VirtualizedContainerService.HintSize="486,1216" sap2010:WorkflowViewState.IdRef="If_125">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -3145,13 +3145,16 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_217">
+                <Sequence sap:VirtualizedContainerService.HintSize="452,986.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_217">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="msgCampoNaoPreenchido" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="[FIX] 24/01/2025: Tratativa para erro de capa - campos do iss bloqueado, mas quando clica em salvar ele desbloqueia. &#xA;" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Salvar'" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="Click_112" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="[FIX] 24/01/2025: Tratativa para erro de capa - campos do iss bloqueado, mas quando clica em salvar ele desbloqueia. &#xA;" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Salvar'" sap:VirtualizedContainerService.HintSize="410,186" sap2010:WorkflowViewState.IdRef="Click_112" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -3178,13 +3181,83 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:Click>
+                  <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[msgCampoNaoPreenchido]" sap:VirtualizedContainerService.HintSize="410,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_58">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a313f0e-aee6-4186-bad5-73f2cdee1767" InformativeScreenshot="a39b8daf7428ef457a4af06dccbc1ee5" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='Obs.*:O campo deve ser informado.' role='internal frame' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                  <If Condition="[msgCampoNaoPreenchido]" sap:VirtualizedContainerService.HintSize="410,526" sap2010:WorkflowViewState.IdRef="If_126">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,342" sap2010:WorkflowViewState.IdRef="Sequence_219">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_113" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="326c90a2-e177-4f78-8db1-7969861c5320" InformativeScreenshot="3dff44509666df3a607ea08d50724123" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='Obs.*:O campo deve ser informado.' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  ISS'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_114" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58477016-6624-45dd-a744-805865247be8" InformativeScreenshot="57b708569ddb62db1ee0376bb1e586b8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='ISS' role='page tab' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_220" />
+                    </If.Else>
+                  </If>
                 </Sequence>
               </If.Then>
               <If.Else>
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_218" />
               </If.Else>
             </If>
-            <If Condition="[String.IsNullOrEmpty(BaseDeCalculoIss)]" sap:VirtualizedContainerService.HintSize="438.6666666666667,341.3333333333333" sap2010:WorkflowViewState.IdRef="If_69">
+            <If Condition="[String.IsNullOrEmpty(BaseDeCalculoIss)]" sap:VirtualizedContainerService.HintSize="486,341.3333333333333" sap2010:WorkflowViewState.IdRef="If_69">
               <If.Then>
                 <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'Base de calculo'" sap:VirtualizedContainerService.HintSize="334,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_60" Text="[&quot;0,00&quot;+&quot;[k(tab)]&quot;]">
                   <ui:TypeInto.Target>
@@ -3557,7 +3630,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Verifica se a SOP terá o lançamento do INSS" DisplayName="Preenche INSS" sap:VirtualizedContainerService.HintSize="576.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_101">
+    <Sequence sap2010:Annotation.AnnotationText="Verifica se a SOP terá o lançamento do INSS" DisplayName="Preenche INSS" sap:VirtualizedContainerService.HintSize="1860.6666666666667,5780" sap2010:WorkflowViewState.IdRef="Sequence_101">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="aliquotaTela" />
       </Sequence.Variables>
@@ -3568,7 +3641,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[LancaINSS=&quot;1&quot;]" DisplayName="Verifica se para a SOP será preenchida a aba de INSS" sap:VirtualizedContainerService.HintSize="1799.2,5248.8" sap2010:WorkflowViewState.IdRef="If_18">
+      <If Condition="[LancaINSS=&quot;1&quot;]" DisplayName="Verifica se para a SOP será preenchida a aba de INSS" sap:VirtualizedContainerService.HintSize="1798.6666666666667,5264" sap2010:WorkflowViewState.IdRef="If_18">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3576,14 +3649,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="1765,5066" sap2010:WorkflowViewState.IdRef="Sequence_114">
+          <Sequence sap:VirtualizedContainerService.HintSize="1764.6666666666667,5080" sap2010:WorkflowViewState.IdRef="Sequence_114">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[Not String.IsNullOrEmpty(ValorBaseInss)]" DisplayName="Preenchimento do ValorBaseInss" sap:VirtualizedContainerService.HintSize="1723,4826" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[Not String.IsNullOrEmpty(ValorBaseInss)]" DisplayName="Preenchimento do ValorBaseInss" sap:VirtualizedContainerService.HintSize="1722.6666666666667,4840.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3591,14 +3664,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="1689,4644" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap:VirtualizedContainerService.HintSize="1688.6666666666667,4656.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'INSS'" sap:VirtualizedContainerService.HintSize="1647,52" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'INSS'" sap:VirtualizedContainerService.HintSize="1646.6666666666667,54" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -3626,7 +3699,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:Click>
-                  <If Condition="[ValorInss.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="1647,52" sap2010:WorkflowViewState.IdRef="If_119">
+                  <If Condition="[ValorInss.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="1646.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_119">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -3634,7 +3707,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_74">
+                      <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_74">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[ValorInss]</OutArgument>
                         </Assign.To>
@@ -3647,7 +3720,7 @@
                       <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_170" />
                     </If.Else>
                   </If>
-                  <If sap2010:Annotation.AnnotationText="Impede que o INSS que tiver base vazia ou nula e valor preenchido siga adiante no processo" Condition="[(ValorBaseInss.IsNullOrEmpty Or Convert.ToDouble(ValorBaseInss)=0) And (Convert.ToDouble(ValorInss) &gt; 0)]" DisplayName="If - Base Nula e Valor Preenchido" sap:VirtualizedContainerService.HintSize="1647,124" sap2010:WorkflowViewState.IdRef="If_118">
+                  <If sap2010:Annotation.AnnotationText="Impede que o INSS que tiver base vazia ou nula e valor preenchido siga adiante no processo" Condition="[(ValorBaseInss.IsNullOrEmpty Or Convert.ToDouble(ValorBaseInss)=0) And (Convert.ToDouble(ValorInss) &gt; 0)]" DisplayName="If - Base Nula e Valor Preenchido" sap:VirtualizedContainerService.HintSize="1646.6666666666667,132.66666666666666" sap2010:WorkflowViewState.IdRef="If_118">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -4541,14 +4614,14 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap:VirtualizedContainerService.HintSize="480.66666666666674,1170" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'INSS'" sap:VirtualizedContainerService.HintSize="438,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'INSS'" sap:VirtualizedContainerService.HintSize="438.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -4570,7 +4643,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'Valor do subcontrato'" EmptyField="True" sap:VirtualizedContainerService.HintSize="438,134" sap2010:WorkflowViewState.IdRef="TypeInto_25" Text="[Config(&quot;ValorDoSubContrato&quot;).ToString+ &quot;[k(enter)]&quot;]">
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'Valor do subcontrato'" EmptyField="True" sap:VirtualizedContainerService.HintSize="438.6666666666667,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_25" Text="[Config(&quot;ValorDoSubContrato&quot;).ToString+ &quot;[k(enter)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02e987e2-be75-4752-9c9a-0552f2586675" InformativeScreenshot="cfde8e69aeec1c59cc44b34544c8c2db" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='INSS' role='page tab' /&gt;&lt;java name='Valor do Subcontrato*' role='text' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -4582,7 +4655,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,333" sap2010:WorkflowViewState.IdRef="TryCatch_26">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,346.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_26">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4590,7 +4663,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_68" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_68" KeyModifiers="None" MouseButton="BTN_LEFT">
                         <ui:Click.CursorPosition>
                           <ui:CursorPosition Position="Center">
                             <ui:CursorPosition.OffsetX>
@@ -4611,7 +4684,7 @@
                       </ui:Click>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_26">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_26">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -4626,7 +4699,7 @@
                       </Catch>
                     </TryCatch.Catches>
                   </TryCatch>
-                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text  Valor Base'" EmptyField="True" sap:VirtualizedContainerService.HintSize="438,134" sap2010:WorkflowViewState.IdRef="TypeInto_64" Text="[&quot;0,00&quot;+ &quot;[k(enter)]&quot;]">
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'text  Valor Base'" EmptyField="True" sap:VirtualizedContainerService.HintSize="438.6666666666667,157.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_64" Text="[&quot;0,00&quot;+ &quot;[k(enter)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e42d4f76-6ff1-45bf-b3e9-3b9b52371dd4" InformativeScreenshot="4cc206aa1e42a87298bef7c903d81305" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java name='Entrada da NF*' role='internal frame' /&gt;&lt;java name='INSS' role='page tab' /&gt;&lt;java idx='3' name='*Valor Base*' role='text' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -4638,7 +4711,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <TryCatch DisplayName="Trata campo protegido" sap:VirtualizedContainerService.HintSize="438,51" sap2010:WorkflowViewState.IdRef="TryCatch_27">
+                  <TryCatch DisplayName="Trata campo protegido" sap:VirtualizedContainerService.HintSize="438.6666666666667,54" sap2010:WorkflowViewState.IdRef="TryCatch_27">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>

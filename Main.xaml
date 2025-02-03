@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>881.3333333333334,1264.6666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>881.3333333333334,1402</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -87,7 +87,7 @@
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Inicializa o projeto dependendo da parametrização feita na planilha config." DisplayName="Main" sap:VirtualizedContainerService.HintSize="558.6666666666666,1200" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Inicializa o projeto dependendo da parametrização feita na planilha config." DisplayName="Main" sap:VirtualizedContainerService.HintSize="594.6666666666666,1337.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
       <Variable x:TypeArguments="x:String" Name="QueueName" />
@@ -99,7 +99,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="496.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532.6666666666666,306.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,226.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -107,7 +107,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_63">
+          <Assign sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_64">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[TipoProcesso]</OutArgument>
             </Assign.To>
@@ -122,21 +122,15 @@
           </Assign>
         </Sequence>
       </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="496.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="532.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[config]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message - Inicialização" sap:VirtualizedContainerService.HintSize="496.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Projeto iniciando em modo: &quot; + config(&quot;Mode&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log Message - Inicialização" sap:VirtualizedContainerService.HintSize="532.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Projeto iniciando em modo: &quot; + config(&quot;Mode&quot;).ToString]" />
     <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[TipoProcesso]" sap:VirtualizedContainerService.HintSize="496.6666666666667,170" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
@@ -171,7 +165,7 @@
         </Assign.Value>
       </Assign>
     </Switch>
-    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="496.6666666666667,414.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="496.6666666666667,299.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Main sem queue workflow" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Inicio\Sem queue\Main sem queue.xaml">
           <ui:InvokeWorkflowFile.Arguments>
