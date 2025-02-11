@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>894.6666666666665,20565.333333333332</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>894.6666666666666,20943.333333333332</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -89,7 +89,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Processes all transactions, inputs data to Oracle and requests for more transactions to process." DisplayName="Process Transactions" sap:VirtualizedContainerService.HintSize="904.6666666666666,20460.666666666668" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Processes all transactions, inputs data to Oracle and requests for more transactions to process." DisplayName="Process Transactions" sap:VirtualizedContainerService.HintSize="904.6666666666666,20838.666666666668" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="erro" />
       <Variable x:TypeArguments="x:String" Name="mensagem" />
@@ -120,7 +120,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Transactions for each" sap:VirtualizedContainerService.HintSize="842.6666666666666,20319.333333333332" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Transactions for each" sap:VirtualizedContainerService.HintSize="842.6666666666666,20697.333333333332" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ContaContabil" />
         <Variable x:TypeArguments="x:String" Name="CnpjFornecedor" />
@@ -270,7 +270,7 @@
           </If.Else>
         </If>
       </Sequence>
-      <Sequence sap2010:Annotation.AnnotationText="[FIX] 11/02/2025; Tratativas provisórias para erros de login" sap:VirtualizedContainerService.HintSize="780.6666666666666,2912" sap2010:WorkflowViewState.IdRef="Sequence_212">
+      <Sequence sap2010:Annotation.AnnotationText="[FIX] 11/02/2025; Tratativas provisórias para erros de login" sap:VirtualizedContainerService.HintSize="780.6666666666666,3290" sap2010:WorkflowViewState.IdRef="Sequence_212">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="oracleAberto" />
         </Sequence.Variables>
@@ -293,7 +293,7 @@
             </ui:Target>
           </ui:UiElementExists.Target>
         </ui:UiElementExists>
-        <If Condition="[not oracleAberto]" sap:VirtualizedContainerService.HintSize="560,2496" sap2010:WorkflowViewState.IdRef="If_137">
+        <If Condition="[not oracleAberto]" sap:VirtualizedContainerService.HintSize="560,3021.3333333333335" sap2010:WorkflowViewState.IdRef="If_137">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -301,7 +301,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="526,2312.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_214">
+            <Sequence sap:VirtualizedContainerService.HintSize="526,2607.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_214">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,13 +310,13 @@
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Iniciando nova tentativa de login - tratativa ativada&quot;]" />
               <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="484,135.33333333333334" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="jp2launcher.exe" />
               <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="484,135.33333333333334" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="chrome.exe" />
-              <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="484,1691.3333333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[config(&quot;UrlOracle_PROD&quot;).ToString]">
+              <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="484,1986" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[config(&quot;UrlOracle_PROD&quot;).ToString]">
                 <ui:OpenBrowser.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1564.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_213">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1859.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_213">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -454,7 +454,51 @@
                           </ui:Target>
                         </ui:Click.Target>
                       </ui:Click>
-                      <Delay Duration="00:02:00" sap:VirtualizedContainerService.HintSize="388,91.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button  Minimize'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1b970f93-68e5-4e66-a0a6-7f3c7e7f9436" InformativeScreenshot="a64f0268d59a6018abd9e1c977703b67" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_*' title='Home - Google Chrome' /&gt;&lt;ctrl name='Home - Google Chrome (Incognito)' role='pane' /&gt;&lt;ctrl name='Minimize' role='push button' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                      <Delay Duration="00:01:00" sap:VirtualizedContainerService.HintSize="388,91.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e1987352-55c6-4577-af3d-a290dae3b108" InformativeScreenshot="fcb8989e8f17f122f1c441fdd8ca8f20" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle*' /&gt;&lt;java name='Navegador*' role='internal frame' /&gt;&lt;java name='Organizações' role='internal frame' /&gt;&lt;java name='Cancelar ALT C' role='push button' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Oracle reaberto&quot;]" />
                     </Sequence>
                   </ActivityAction>
@@ -463,31 +507,16 @@
             </Sequence>
           </If.Then>
           <If.Else>
-            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_215" />
+            <Sequence sap:VirtualizedContainerService.HintSize="376,230.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_215">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Sem erro de login&quot;]" />
+            </Sequence>
           </If.Else>
         </If>
-        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button  Minimize'" sap:VirtualizedContainerService.HintSize="560,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
-          <ui:Click.CursorPosition>
-            <ui:CursorPosition Position="Center">
-              <ui:CursorPosition.OffsetX>
-                <InArgument x:TypeArguments="x:Int32" />
-              </ui:CursorPosition.OffsetX>
-              <ui:CursorPosition.OffsetY>
-                <InArgument x:TypeArguments="x:Int32" />
-              </ui:CursorPosition.OffsetY>
-            </ui:CursorPosition>
-          </ui:Click.CursorPosition>
-          <ui:Click.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1b970f93-68e5-4e66-a0a6-7f3c7e7f9436" InformativeScreenshot="a64f0268d59a6018abd9e1c977703b67" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_*' title='Home - Google Chrome' /&gt;&lt;ctrl name='Home - Google Chrome (Incognito)' role='pane' /&gt;&lt;ctrl name='Minimize' role='push button' /&gt;">
-              <ui:Target.TimeoutMS>
-                <InArgument x:TypeArguments="x:Int32" />
-              </ui:Target.TimeoutMS>
-              <ui:Target.WaitForReady>
-                <InArgument x:TypeArguments="ui:WaitForReady" />
-              </ui:Target.WaitForReady>
-            </ui:Target>
-          </ui:Click.Target>
-        </ui:Click>
       </Sequence>
       <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="780.6666666666666,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
