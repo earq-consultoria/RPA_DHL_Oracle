@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>548,2596.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>881.3333333333334,1638</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_Processo_Exportacao_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -111,7 +111,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Atualiza o status do processo no PPD" DisplayName="Update_Processo_Exportacao" sap:VirtualizedContainerService.HintSize="558,2532" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Atualiza o status do processo no PPD" DisplayName="Update_Processo_Exportacao" sap:VirtualizedContainerService.HintSize="450,1573.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="statusCode" />
       <Variable x:TypeArguments="x:String" Name="proxyHeader" />
@@ -123,7 +123,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[Mensagem = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="496,53.333333333333336" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[Mensagem = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -150,7 +150,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="[NEW] 31/01/2025: Novos ajustes de mensagens." DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="496,97.33333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="Data\Parametrização de Mensagens.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="[NEW] 31/01/2025: Novos ajustes de mensagens." DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="388,99.33333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="Data\Parametrização de Mensagens.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -230,128 +230,145 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Sequence sap2010:Annotation.AnnotationText="[NEW] 07/02/2025: Verifica se timer fechou o oracle." sap:VirtualizedContainerService.HintSize="496,114" sap2010:WorkflowViewState.IdRef="Sequence_10">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Boolean" Name="timerDoProcesso" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:UiElementExists DisplayName="Element Exists 'cmd.exe  Command Prompt'" Exists="[timerDoProcesso]" sap:VirtualizedContainerService.HintSize="662,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-        <ui:UiElementExists.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b61b93ae-ed23-4c72-89c2-a8b1be638d57" InformativeScreenshot="3c7afbd020b2ac11cfa27b723ce7e8f0" Selector="&lt;wnd app='cmd.exe' cls='ConsoleWindowClass' title='TimerDoProcesso ' /&gt;">
-            <ui:Target.TimeoutMS>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:Target.TimeoutMS>
-            <ui:Target.WaitForReady>
-              <InArgument x:TypeArguments="ui:WaitForReady" />
-            </ui:Target.WaitForReady>
-          </ui:Target>
-        </ui:UiElementExists.Target>
-      </ui:UiElementExists>
-      <If sap2010:Annotation.AnnotationText="Analisa se o timer geral encerrou o oracle." Condition="[Not timerDoProcesso]" sap:VirtualizedContainerService.HintSize="662,1402" sap2010:WorkflowViewState.IdRef="If_4">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="476,296.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,226" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="[NEW] 07/02/2025: Verifica se timer fechou o oracle." sap:VirtualizedContainerService.HintSize="450,115.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="timerDoProcesso" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Mensagem.Replace(".", "..")]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Mensagem.Replace(":", "::")]</InArgument>
-              </Assign.Value>
-            </Assign>
-          </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence sap:VirtualizedContainerService.HintSize="628,891.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If sap2010:Annotation.AnnotationText="Analisa se timer de mercadoria encerrou o oracle." Condition="[Mensagem.Contains(&quot;NFEE&quot;)]" sap:VirtualizedContainerService.HintSize="586,804" sap2010:WorkflowViewState.IdRef="If_6">
+            <ui:UiElementExists DisplayName="Element Exists 'cmd.exe  Command Prompt'" Exists="[timerDoProcesso]" sap:VirtualizedContainerService.HintSize="662,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b61b93ae-ed23-4c72-89c2-a8b1be638d57" InformativeScreenshot="3c7afbd020b2ac11cfa27b723ce7e8f0" Selector="&lt;wnd app='cmd.exe' cls='ConsoleWindowClass' title='TimerDoProcesso ' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If sap2010:Annotation.AnnotationText="Analisa se o timer geral encerrou o oracle." Condition="[Not timerDoProcesso]" sap:VirtualizedContainerService.HintSize="662,1402" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="552,590" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Boolean" Name="timerMercadoria" />
-                  </Sequence.Variables>
+                <Sequence sap:VirtualizedContainerService.HintSize="476,296.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:UiElementExists DisplayName="Element Exists 'cmd.exe  TimerDeMercado...'" Exists="[timerMercadoria]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
-                    <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9080201c-3bba-4dcd-b382-0b206425f61e" InformativeScreenshot="ccd0b272e41db167ca0692771cee8a65" Selector="&lt;wnd app='cmd.exe' cls='ConsoleWindowClass' title='TimerDeMercadoria ' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:UiElementExists.Target>
-                  </ui:UiElementExists>
-                  <If Condition="[not timerMercadoria]" sap:VirtualizedContainerService.HintSize="510,355.3333333333333" sap2010:WorkflowViewState.IdRef="If_7">
+                  <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Mensagem.Replace(".", "..")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Mensagem.Replace(":", "::")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="628,891.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If sap2010:Annotation.AnnotationText="Analisa se timer de mercadoria encerrou o oracle." Condition="[Mensagem.Contains(&quot;NFEE&quot;)]" sap:VirtualizedContainerService.HintSize="586,804" sap2010:WorkflowViewState.IdRef="If_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="476,172" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <Sequence sap:VirtualizedContainerService.HintSize="552,590" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="timerMercadoria" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_7">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[Mensagem.Replace(".", "..")]</InArgument>
-                          </Assign.Value>
-                        </Assign>
+                        <ui:UiElementExists DisplayName="Element Exists 'cmd.exe  TimerDeMercado...'" Exists="[timerMercadoria]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9080201c-3bba-4dcd-b382-0b206425f61e" InformativeScreenshot="ccd0b272e41db167ca0692771cee8a65" Selector="&lt;wnd app='cmd.exe' cls='ConsoleWindowClass' title='TimerDeMercadoria ' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                        <If Condition="[not timerMercadoria]" sap:VirtualizedContainerService.HintSize="510,355.3333333333333" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="476,172" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[Mensagem]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Mensagem.Replace(".", "..")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_16" />
+                          </If.Else>
+                        </If>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_16" />
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
                     </If.Else>
                   </If>
                 </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
               </If.Else>
             </If>
           </Sequence>
-        </If.Else>
-      </If>
-    </Sequence>
-    <d:AtualizarProcessoExportacao DocumentoId="[DocumentoId]" EndPoint="[Config(&quot;UpdateStatusUrl&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" HTTP_Password="[Config(&quot;HttpPsw&quot;).ToString]" HTTP_Response="[response]" HTTP_StatusCode="[statusCode]" HTTP_User="[Config(&quot;HttpUser&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496,663.3333333333334" sap2010:WorkflowViewState.IdRef="AtualizarProcessoExportacao_2" Mensagem="[Mensagem.Replace(&quot;[PRINT]&quot;,&quot;&quot;).Replace(&quot;[APROVADO]&quot;,&quot;&quot;)]" PPD_Password="[Config(&quot;SenhaPPD&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" PPD_User="[Config(&quot;LoginPPD&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" ProcessoExportacaoId="[ProcessoExportacaoId]" RI="[RI]" Sistema="oracle">
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <d:AtualizarProcessoExportacao DocumentoId="[DocumentoId]" EndPoint="[Config(&quot;UpdateStatusUrl&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" HTTP_Password="[Config(&quot;HttpPsw&quot;).ToString]" HTTP_Response="[response]" HTTP_StatusCode="[statusCode]" HTTP_User="[Config(&quot;HttpUser&quot;).ToString]" sap:VirtualizedContainerService.HintSize="388,671.3333333333334" sap2010:WorkflowViewState.IdRef="AtualizarProcessoExportacao_2" Mensagem="[Mensagem.Replace(&quot;[PRINT]&quot;,&quot;&quot;).Replace(&quot;[APROVADO]&quot;,&quot;&quot;)]" PPD_Password="[Config(&quot;SenhaPPD&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" PPD_User="[Config(&quot;LoginPPD&quot;+&quot;_&quot;+Config(&quot;Mode&quot;).ToString).ToString]" ProcessoExportacaoId="[ProcessoExportacaoId]" RI="[RI]" Sistema="oracle">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -359,7 +376,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </d:AtualizarProcessoExportacao>
-    <If Condition="[statusCode &lt;&gt; &quot;200&quot;]" sap:VirtualizedContainerService.HintSize="496,298" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[statusCode &lt;&gt; &quot;200&quot;]" sap:VirtualizedContainerService.HintSize="388,299.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -367,7 +384,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Adicionar erro na planilha workflow" sap:VirtualizedContainerService.HintSize="334,114.66666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Oracle\Adicionar erro na planilha.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Adicionar erro na planilha workflow" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Oracle\Adicionar erro na planilha.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="Mensagem">[Mensagem]</InArgument>
@@ -381,48 +398,65 @@
         <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_2" />
       </If.Else>
     </If>
-    <Sequence sap2010:Annotation.AnnotationText="[FIX] 13/01/2025: Quando o oracle atualiza sem testar a integração com o RPA pode ser que algum seletor seja alterado ou algum novo pop-up seja adicionado. Dependendo do problema, pode passar despercebido; e, durante a madrugada, o RPA pode travar por não estar preparado para aquelas mudanças. &#xA;&#xA;Desenvolvido uma tratativa para esse situação. No início do processamento é criado um timer que acompanha o processamento, caso o processo atinja esse limite do timer, a aplicação é fechada e um novo processo será começado." DisplayName="Fecha timers do processamento" sap:VirtualizedContainerService.HintSize="496,964.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="timerValue" />
-        <Variable x:TypeArguments="x:String" Name="timerAtivado" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:KillProcess Process="{x:Null}" AppliesTo="OnlyCurrentSession" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,135.33333333333334" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="timeout" />
-      <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_5">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[timerAtivado]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[config("TimerGeral").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <If Condition="[String.equals(timerAtivado, &quot;On&quot;)]" sap:VirtualizedContainerService.HintSize="434,414" sap2010:WorkflowViewState.IdRef="If_5">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,230.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="558,1082.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="[FIX] 13/01/2025: Quando o oracle atualiza sem testar a integração com o RPA pode ser que algum seletor seja alterado ou algum novo pop-up seja adicionado. Dependendo do problema, pode passar despercebido; e, durante a madrugada, o RPA pode travar por não estar preparado para aquelas mudanças. &#xA;&#xA;Desenvolvido uma tratativa para esse situação. No início do processamento é criado um timer que acompanha o processamento, caso o processo atinja esse limite do timer, a aplicação é fechada e um novo processo será começado." DisplayName="Fecha timers do processamento" sap:VirtualizedContainerService.HintSize="496,972" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="timerValue" />
+              <Variable x:TypeArguments="x:String" Name="timerAtivado" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer do processo fechado&quot;]" />
+            <ui:KillProcess Process="{x:Null}" AppliesTo="OnlyCurrentSession" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,136.66666666666666" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="timeout" />
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[timerAtivado]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[config("TimerGeral").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[String.equals(timerAtivado, &quot;On&quot;)]" sap:VirtualizedContainerService.HintSize="434,414" sap2010:WorkflowViewState.IdRef="If_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,230.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Timer do processo fechado&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_13" />
+              </If.Else>
+            </If>
           </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_13" />
-        </If.Else>
-      </If>
-    </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
   </Sequence>
 </Activity>
