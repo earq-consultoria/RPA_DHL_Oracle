@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>786.6666666666666,1636</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>881.3333333333334,1395.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -95,7 +95,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Inicializa o projeto dependendo da parametrização feita na planilha config." DisplayName="Main" sap:VirtualizedContainerService.HintSize="594.6666666666666,1331.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Inicializa o projeto dependendo da parametrização feita na planilha config." DisplayName="Main" sap:VirtualizedContainerService.HintSize="594.6666666666666,1330.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
       <Variable x:TypeArguments="x:String" Name="QueueName" />
@@ -156,7 +156,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign x:Key="AP" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign x:Key="AP" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[QueueNumber]</OutArgument>
         </Assign.To>
@@ -164,7 +164,7 @@
           <InArgument x:TypeArguments="x:Int32">2</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="MERCADORIA" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign x:Key="MERCADORIA" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[QueueNumber]</OutArgument>
         </Assign.To>
@@ -173,9 +173,9 @@
         </Assign.Value>
       </Assign>
     </Switch>
-    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="532.6666666666666,298.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[config(&quot;Mode&quot;).ToString.Equals(&quot;TEST&quot;)]" DisplayName="Inicia o projeto conforme o modo parametrizado" sap:VirtualizedContainerService.HintSize="532.6666666666666,298" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Main sem queue workflow" sap:VirtualizedContainerService.HintSize="334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Inicio\Sem queue\Main sem queue.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Main sem queue workflow" sap:VirtualizedContainerService.HintSize="334,114.66666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Inicio\Sem queue\Main sem queue.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[config]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
