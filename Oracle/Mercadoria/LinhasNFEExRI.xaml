@@ -16,7 +16,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>916,13258</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>916,11575.333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LinhasNFEExRI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -111,7 +111,7 @@
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LinhasNFEExRI" sap:VirtualizedContainerService.HintSize="926,13193.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LinhasNFEExRI" sap:VirtualizedContainerService.HintSize="926,11470.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IList(x:Double)" Name="ListaNfe_Quantidade" />
       <Variable x:TypeArguments="scg:IList(x:Double)" Name="ListaNfe_PrecoUnitario" />
@@ -441,7 +441,7 @@
         </ui:Click.Target>
       </ui:Click>
     </Sequence>
-    <If Condition="[CodigoSOP.Contains(&quot;69&quot;)]" sap:VirtualizedContainerService.HintSize="864,9829.333333333334" sap2010:WorkflowViewState.IdRef="If_38">
+    <If Condition="[CodigoSOP.Contains(&quot;69&quot;)]" sap:VirtualizedContainerService.HintSize="864,6921.333333333333" sap2010:WorkflowViewState.IdRef="If_38">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -449,14 +449,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="830,9646" sap2010:WorkflowViewState.IdRef="Sequence_89">
+        <Sequence sap:VirtualizedContainerService.HintSize="830,6738" sap2010:WorkflowViewState.IdRef="Sequence_89">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Realiza o preenchimento dos campos da associação e clica para realizar a associação entre as lionhas da NF-e e do PO.&#xA;" DisplayName="Associação sem Remessa" sap:VirtualizedContainerService.HintSize="788,7957.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_41">
+          <Sequence sap2010:Annotation.AnnotationText="Realiza o preenchimento dos campos da associação e clica para realizar a associação entre as lionhas da NF-e e do PO.&#xA;" DisplayName="Associação sem Remessa" sap:VirtualizedContainerService.HintSize="788,6503.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_41">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -597,7 +597,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,566" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,565.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_104">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="TelaValores" />
                     </Sequence.Variables>
@@ -637,7 +637,7 @@
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[TelaValores]" sap:VirtualizedContainerService.HintSize="334,184" sap2010:WorkflowViewState.IdRef="If_51">
+                    <If Condition="[TelaValores]" sap:VirtualizedContainerService.HintSize="334,183.33333333333334" sap2010:WorkflowViewState.IdRef="If_51">
                       <If.Then>
                         <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'check box  CFOP'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_29" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
@@ -695,7 +695,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,566" sap2010:WorkflowViewState.IdRef="Sequence_105">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,565.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_105">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="TelaValores" />
                     </Sequence.Variables>
@@ -735,7 +735,7 @@
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[TelaValores]" sap:VirtualizedContainerService.HintSize="334,184" sap2010:WorkflowViewState.IdRef="If_53">
+                    <If Condition="[TelaValores]" sap:VirtualizedContainerService.HintSize="334,183.33333333333334" sap2010:WorkflowViewState.IdRef="If_53">
                       <If.Then>
                         <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'check box  CFOP'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_31" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
@@ -1070,86 +1070,6 @@
                 </If.Else>
               </If>
             </Sequence>
-            <Sequence sap2010:Annotation.AnnotationText="[FIX] 23/11/2024: Tratativa para pop-up de valor unitário divergindo entre os documentos." sap:VirtualizedContainerService.HintSize="726,1414" sap2010:WorkflowViewState.IdRef="Sequence_220">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="isPrecoDivergente" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isPrecoDivergente]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="608.6666666666666,1272.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
-                <ui:InterruptibleDoWhile.Body>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,1103.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_223">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_35">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="265d22c5-44a5-4c37-9bec-90f2a247675f" InformativeScreenshot="5cae667038a952258ecf708dc8ca4393" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Erro O Preço Unitário Informado diverge do Preço da PO. Informe um valor dentro da Tolerância.' role='internal frame' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                    <If Condition="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,845.3333333333334" sap2010:WorkflowViewState.IdRef="If_91">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,662" sap2010:WorkflowViewState.IdRef="Sequence_221">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="x:String" Name="MensagemErro" />
-                          </Sequence.Variables>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="434,135.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_36" Key="o" KeyModifiers="Alt">
-                            <ui:SendHotkey.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="207ac99c-bb7e-4192-b4fe-4bbb81f6b1c1">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:SendHotkey.Target>
-                          </ui:SendHotkey>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_116">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os documentos.</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[MensagemErro]" />
-                          <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_14" />
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_222" />
-                      </If.Else>
-                    </If>
-                  </Sequence>
-                </ui:InterruptibleDoWhile.Body>
-              </ui:InterruptibleDoWhile>
-            </Sequence>
             <Sequence sap2010:Annotation.AnnotationText="Preenche o campo Conta de acordo com o valor respectivo a Filial&#xA;" DisplayName="Conta" sap:VirtualizedContainerService.HintSize="726,311.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_50">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1194,86 +1114,6 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Sequence sap2010:Annotation.AnnotationText="[FIX] 23/11/2024: Tratativa para pop-up de valor unitário divergindo entre os documentos." sap:VirtualizedContainerService.HintSize="788,1414" sap2010:WorkflowViewState.IdRef="Sequence_212">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="isPrecoDivergente" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isPrecoDivergente]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="608.6666666666666,1272.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
-              <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,1103.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_219">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_34">
-                    <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="265d22c5-44a5-4c37-9bec-90f2a247675f" InformativeScreenshot="5cae667038a952258ecf708dc8ca4393" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Erro O Preço Unitário Informado diverge do Preço da PO. Informe um valor dentro da Tolerância.' role='internal frame' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:UiElementExists.Target>
-                  </ui:UiElementExists>
-                  <If Condition="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,845.3333333333334" sap2010:WorkflowViewState.IdRef="If_89">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="476,662" sap2010:WorkflowViewState.IdRef="Sequence_213">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="MensagemErro" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="434,135.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_35" Key="o" KeyModifiers="Alt">
-                          <ui:SendHotkey.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="207ac99c-bb7e-4192-b4fe-4bbb81f6b1c1">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                              <ui:Target.WaitForReady>
-                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                              </ui:Target.WaitForReady>
-                            </ui:Target>
-                          </ui:SendHotkey.Target>
-                        </ui:SendHotkey>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_113">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">Erro no lançamento: Preco Unitario divergindo entre os documentos.</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[MensagemErro + &quot;.&quot;]" />
-                        <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_13" />
-                      </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_214" />
-                    </If.Else>
-                  </If>
-                </Sequence>
-              </ui:InterruptibleDoWhile.Body>
-            </ui:InterruptibleDoWhile>
-          </Sequence>
         </Sequence>
       </If.Then>
       <If.Else>
@@ -5791,7 +5631,7 @@
           </ui:Click>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,21.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -5835,7 +5675,7 @@
           </ui:Click>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,21.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -5864,13 +5704,13 @@
       </ui:SendHotkey>
       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,53.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,267.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_51">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,266" sap2010:WorkflowViewState.IdRef="Sequence_51">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="388,156.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="f4" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'panel'" sap:VirtualizedContainerService.HintSize="388,155.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="f4" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6ebe17c4-1dad-4367-a121-dbcd465d3ce1" InformativeScreenshot="8105ad4d9116d542aa373add4e496f75" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' omit:title='Aplicativos Oracle - AMEPRJB' /&gt;&lt;java role='panel' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -5891,6 +5731,165 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="[FIX] 06/03/2025: Tratativa para pop-up de valor unitário divergindo entre os documentos." sap:VirtualizedContainerService.HintSize="864,1145.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_224">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="isPrecoDivergente" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_36">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="265d22c5-44a5-4c37-9bec-90f2a247675f" InformativeScreenshot="5cae667038a952258ecf708dc8ca4393" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Erro O Preço Unitário Informado diverge do Preço da PO. Informe um valor dentro da Tolerância.' role='internal frame' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="510,856.6666666666666" sap2010:WorkflowViewState.IdRef="If_92">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,673.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_225">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="MensagemErro" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;O Preço unitário diverge do Preço da PO&quot;]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,53.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_15">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_231">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="388,114.66666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="PastaOrigem">[PastaOrigem]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="DocumentoId">[DocumentoId]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="RI">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ProcessoExportacaoId">[ProcessoExportacaoId]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="Mensagem">[MensagemErro]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,53.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="548.6666666666666,840.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_232">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isPrecoDivergente]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="486.6666666666667,730" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+                    <ui:InterruptibleDoWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,560.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_228">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" ContinueOnError="True" DisplayName="Send Hotkey 'label'" sap:VirtualizedContainerService.HintSize="388,155.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_37" Key="o" KeyModifiers="Alt">
+                          <ui:SendHotkey.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="207ac99c-bb7e-4192-b4fe-4bbb81f6b1c1" InformativeScreenshot="c8236cff832a4a29038525ebfecc54cd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Erro O Preço Unitário Informado diverge do Preço da PO. Informe um valor dentro da Tolerância.' role='internal frame' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:SendHotkey.Target>
+                        </ui:SendHotkey>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_56" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82a869dc-6b26-427e-9bba-1e8131888364" InformativeScreenshot="14f511222a1261ac702847f5edaa91d2" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[isPrecoDivergente]" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_37">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="265d22c5-44a5-4c37-9bec-90f2a247675f" InformativeScreenshot="5cae667038a952258ecf708dc8ca4393" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Aplicativos Oracle - AME*' /&gt;&lt;java name='Vinculação' role='internal frame' /&gt;&lt;java name='Erro O Preço Unitário Informado diverge do Preço da PO. Informe um valor dentro da Tolerância.' role='internal frame' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                      </Sequence>
+                    </ui:InterruptibleDoWhile.Body>
+                  </ui:InterruptibleDoWhile>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_117">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[MensagemErro]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Preco Unitario divergindo do Preco da PO</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Throw Exception="[new BusinessRuleException(MensagemErro)]" sap:VirtualizedContainerService.HintSize="434,91.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_16" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_227" />
+        </If.Else>
+      </If>
     </Sequence>
   </Sequence>
 </Activity>
